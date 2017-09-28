@@ -13,19 +13,22 @@ const ItemSchema = new Schema({
     },
     type: {
         type: String,
-        required: true
+        required: true,
+        enum: ['positive', 'negative', 'action']
     },
     priority: {
-        type: String
+        type: String,
+        enum: ['Lowest', 'Low', 'Normal', 'High', 'Highest']
     },
     dueDate: {
         type: Date
     },
     responsible: {
         type: String
-    }
+    },
     progress: {
-        type: String
+        type: String,
+        enum: ['ToDo', 'InProgress', 'InReview', 'Done']
     }
 
 })
