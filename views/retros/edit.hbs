@@ -1,0 +1,20 @@
+<h2>Update Retro:</h2>
+
+<form action="/{{user.username}}/{{retro._id}}?_method=PUT" method="POST">
+<label>Title:</label>
+<input type="text" name="title" value="{{retro.title}}"><br>
+<textarea rows="8" cols="60" name="description" placeholder="Description">
+{{retro.description}}
+</textarea><br>
+<textarea rows="8" cols="60" name="positiveNotes" placeholder="Positive Notes">
+{{retro.positiveNotes}}
+</textarea><br>
+<textarea rows="8" cols="60" name="negativeNotes" placeholder="Negative Notes">
+{{retro.negativeNotes}}
+</textarea><br>
+<label>Participents:</label>
+<input type="text" name="participents" value="
+{{retro.participents}}"><br>
+<input type="submit" value="Update Retro">
+</form>
+<a href="/{{userName}}">Return to Retros</a>

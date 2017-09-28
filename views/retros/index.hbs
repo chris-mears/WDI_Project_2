@@ -1,11 +1,14 @@
 <h1>Welcome, {{user.name}} to your Retro's</h1>
 
 <h2>Retros:</h2>
+<a href="/{{user.username}}/new">Create a retro</a>
 {{#each user.retros}}
     <div>
         <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
         <p>{{this.description}}</p>
         <p>Date: {{this.meetingDate}}</p>
         <p>Praticpents: {{this.participents}}</p>
+        <a href="/{{../user.username}}/{{this._id}}/edit">Edit Retro</a>
+        <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
     </div>
 {{/each}}

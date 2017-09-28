@@ -34,7 +34,7 @@ const project_one = new RetroModel({
     positiveNotes: 'Good functionality',
     negativeNotes: 'CSS needs work',
     meetingDate: new Date(),
-    participents: ["chris", "blake"]
+    participents: "chris, blake"
 })
 const sprint_fuzzybunny = new RetroModel({
     title: "Sprint: Fuzzy Bunny",
@@ -42,7 +42,7 @@ const sprint_fuzzybunny = new RetroModel({
     positiveNotes: 'Good workflow',
     negativeNotes: 'Account Managers blew us up',
     meetingDate: new Date(),
-    participents: ["chris", "Tom"]
+    participents: "chris, Tom"
 })
 const client_review = new RetroModel({
     title: "Site Review with Client",
@@ -50,7 +50,7 @@ const client_review = new RetroModel({
     positiveNotes: 'Good layout',
     negativeNotes: 'Confusing Sign up functionality',
     meetingDate: new Date(),
-    participents: ["Trisha", "Robert"]
+    participents: "Trisha, Robert"
 })
 
 const action_item_project = new ItemModel({

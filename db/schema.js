@@ -51,7 +51,7 @@ const RetroSchema = new Schema({
         type: Date,
     },
     participents: {
-        type: Array
+        type: String
     },
     retroItems: [ItemSchema]
 })
