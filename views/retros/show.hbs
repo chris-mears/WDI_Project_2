@@ -1,17 +1,23 @@
 <h2>{{retro.title}}</h2>
-<h4>Description:</h4>
+<h3>Description:</h3>
 <p>{{retro.description}}</p>
+<h3>The Good and The Bad</h3>
+<h4>The Good:</h4>
+<p>{{retro.positiveNotes}}</p>
+
+<h4>The Bad:</h4>
+<p>{{retro.negativeNotes}}</p>
 
 <div>
     <p><strong>Meeting Date:</strong><span> {{retro.meetingDate}}</span></p>
     <p><strong>Participents:</strong><span> {{retro.participents}}</span></p>
 </div>
-<h5>Meeting Items:</h5>
+<h4>Meeting Items:</h4>
 <ul>
     {{#each retro.retroItems}}
         <li>
             <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}">
-            <span>{{this.type}}</span> - <span>{{this.title}}</span></a>
+            <span>{{this.title}}</span></a>
             </li>
     {{/each}}
 </ul>
