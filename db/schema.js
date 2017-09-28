@@ -65,5 +65,11 @@ const UserSchema = new Schema({
 })
 
 const UserModel = mongoose.model('User', UserSchema)
-const RetroModel = mongoose.model('Retro', RetroModel)
+const RetroModel = mongoose.model('Retro', RetroSchema)
 const ItemModel = mongoose.model('Item', ItemSchema)
+
+module.exports = {
+    UserModel: UserModel,
+    RetroModel: RetroModel,
+    ItemModel: ItemModel
+}

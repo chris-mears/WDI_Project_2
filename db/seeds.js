@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-const Schema = require("./Schema.js");
+const Schema = require("./schema.js");
 
 mongoose.connect(process.env.MONGODB_URI)
 
@@ -21,7 +21,7 @@ const UserModel = Schema.UserModel
 const RetroModel = Schema.RetroModel
 const ItemModel = Schema.ItemModel
 
-UserModel.remove({}, (err) => {
+UserModel.remove({}, function(err) {
     console.log(err);
 })
 
@@ -128,7 +128,7 @@ trisha.retros = [client_review]
 
 const users = [chris, trisha]
 
-user.forEach((user) => {
+users.forEach((user) => {
     user.save()
         .then((user) => {
             console.log(`${user.name} saved!`)
@@ -137,3 +137,4 @@ user.forEach((user) => {
             console.log(err)
         })
 })
+db.close();
