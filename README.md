@@ -8,7 +8,7 @@ Retro/Meeting App
 ![Wireframes](Wireframes.png)
 ---
 ### ERD:
-![ERD](ERD.png)
+![ERD](ERD.jpg)
 ---
 ### Goal (v1):
 Create an app that allows a user to utilize action items that come out of a retro/feedback meeting. The app will allow users to record data from a retro/feeback meeting and create action items that come out of it. Each action item will have addition information for the user to utilize in tracking the progress of the action item.
