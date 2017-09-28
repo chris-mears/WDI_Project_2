@@ -9,7 +9,7 @@ Retro/Meeting App
 Create an app that allows a user to utilize action items that come out of a retro/feedback meeting. The app will allow users to record data from a retro/feeback meeting and create action items that come out of it. Each action item will have addition information for the user to utilize in tracking the progress of the action item.
 ---
 ### Wireframes
-![Wireframes](project/Wireframes.png)
+![Wireframes](project_imgs/Wireframes.png)
 ---
 ### ERD:
-![ERD](project/ERD.jpg)
+![ERD](project_imgs/ERD.jpg)
