@@ -12,4 +12,4 @@ Create an app that allows a user to utilize action items that come out of a retr
 ![Wireframes](project_imgs/Wireframes.png)
 ---
 ### ERD:
-![ERD](project_imgs/ERD.jpg)
+![ERD](project_imgs/ERD.png)
