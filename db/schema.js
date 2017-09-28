@@ -41,6 +41,12 @@ const RetroSchema = new Schema({
     description: {
         type: String
     },
+    positiveNotes: {
+        type: String
+    },
+    negativeNotes: {
+        type: String
+    },
     meetingDate: {
         type: Date,
     },

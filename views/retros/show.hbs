@@ -1,0 +1,17 @@
+<h2>{{retro.title}}</h2>
+<h4>Description:</h4>
+<p>{{retro.description}}</p>
+
+<div>
+    <p><strong>Meeting Date:</strong><span> {{retro.meetingDate}}</span></p>
+    <p><strong>Participents:</strong><span> {{retro.participents}}</span></p>
+</div>
+<h5>Meeting Items:</h5>
+<ul>
+    {{#each retro.retroItems}}
+        <li>
+            <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}">
+            <span>{{this.type}}</span> - <span>{{this.title}}</span></a>
+            </li>
+    {{/each}}
+</ul>

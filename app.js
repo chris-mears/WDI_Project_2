@@ -7,7 +7,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+
+mongoose.Promise = global.Promise
+mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
 const db = mongoose.connection;
 
 db.on('error', (err) => {
@@ -19,7 +21,8 @@ db.once('open', () => {
 });
 
 const index = require('./routes/index');
-const users = require('./routes/users');
+const retro = require('./routes/retros');
+const item = require('./routes/items.js');
 
 const app = express();
 
@@ -37,7 +40,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/:username', retro);
+app.use('/:username/:retroId/:itemId', item);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
