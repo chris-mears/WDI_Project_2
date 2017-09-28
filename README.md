@@ -5,6 +5,8 @@ Retro/Meeting App
 ### Heroku Link:
 ### Trello Board: [WDI Project 2](https://trello.com/b/74XgZJik/wdi-project-2-full-stack-crud)
 ### Wireframes
+![Wireframes](Wireframes.png)
+---
 ### ERD:
 ![ERD](ERD.png)
 ---
