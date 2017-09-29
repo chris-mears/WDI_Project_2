@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/:username', retro);
-app.use('/:username/:retroId/:itemId', item);
+app.use('/:username/:retroId/', item);
 
 
 // catch 404 and forward to error handler

@@ -14,7 +14,7 @@ const ItemSchema = new Schema({
     type: {
         type: String,
         required: true,
-        enum: ['positive', 'negative', 'action']
+        enum: ['action']
     },
     priority: {
         type: String,
