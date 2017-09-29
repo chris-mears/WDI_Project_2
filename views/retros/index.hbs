@@ -20,7 +20,10 @@
     <h5>{{this.title}}</h5>
     <ul>
     {{#each this.retroItems}}
-    <li><a href="{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}} - {{this.priority}}</a></li>
+    <li><a href="{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}} - {{this.priority}}</a>
+    <a href="{{../../userName}}/{{../this._id}}/{{this._id}}/useritem/edit">Edit</a>
+    <a href="{{../../userName}}/{{../this._id}}/{{this._id}}/delete/delete">Delete</a>
+    </li>
     {{/each}}
     </ul>
     {{/each}}

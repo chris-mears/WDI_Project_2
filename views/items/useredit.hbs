@@ -1,0 +1,30 @@
+<h2>Update Action item:</h2>
+
+<form action="/{{user.username}}/{{retro._id}}/{{item._id}}/user/update?_method=PUT" method="POST">
+<label>Title:</label>
+<input type="text" name="title" value="{{item.title}}"><br>
+<textarea rows="8" cols="60" name="description" placeholder="Description">
+{{item.description}}
+</textarea><br>
+
+<label>Priority:</label><br>
+<select name="priority">
+  <option value="Lowest">Lowest</option>
+  <option value="Low">Low</option>
+  <option value="Normal" selected>Normal</option>
+  <option value="High">High</option>
+  <option value="Highest">Highest</option>
+</select><br>
+
+<label>Due Date:</label>
+<input type="date" name="dueDate" value="{{item.dueDate}}"><br>
+<label>Responsible:</label>
+<input type="text" name="responsible" value="{{item.responsible}}"><br>
+<label>Progress:</label><br>
+<input type="radio" name="progress" value="ToDo" checked> To Do<br>
+<input type="radio" name="progress" value="InProgress"> In Progress<br>
+<input type="radio" name="progress" value="InReview"> In Review<br>
+<input type="radio" name="progress" value="Done"> Done<br>
+<input type="submit" value="Update Item">
+</form>
+<a href="/{{user.username}}/{{retro._id}}/{{item._id}}">Return to Item</a>
