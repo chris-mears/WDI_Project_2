@@ -1,9 +1,11 @@
 <h1>Welcome, {{user.name}} to your Retro's</h1>
+<a href ="/">Log out!</a>
 
 <h2>Retros:</h2>
 <a href="/{{user.username}}/new">Create a retro</a>
+<div>
 {{#each user.retros}}
-    <div>
+    <div class="retros">
         <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
         <p>{{this.description}}</p>
         <p>Date: {{this.meetingDate}}</p>
@@ -12,3 +14,14 @@
         <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
     </div>
 {{/each}}
+</div>
+<div class="items">
+{{#each user.retros}}
+    <h5>{{this.title}}</h5>
+    <ul>
+    {{#each this.retroItems}}
+    <li><a href="{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}} - {{this.priority}}</a></li>
+    {{/each}}
+    </ul>
+    {{/each}}
+</div>

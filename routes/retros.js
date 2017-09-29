@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
     UserModel.findOne({ username: userName })
         .then((user) => {
             res.render('retros/index', {
-                user: user
+                user: user,
+                userName: userName
             })
         })
         .catch((err) => {

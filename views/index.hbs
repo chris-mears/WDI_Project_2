@@ -1,14 +1,15 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<h3>Users:</h3>
-{{#each users}}
-    <div><a href="/{{this.username}}">{{this.name}}</a></div>
-{{/each}}
+<form action="/login" method="POST">
+<label>Login: </label>
+<input type="text" name="username">
+<input type="submit" value="Login">
+</form>
 
-<!-- For Login -->
-<!-- <from action='/login' method="POST">
-    <label>username:</label>
-    <input type="text" name="username">
-    <input type="submit" value="Login">
-</from> -->
+<form action="/new" method="POST">
+<label>Create Account: </label>
+<input type="text" name="name">
+<input type="text" name="username">
+<input type="submit" value="Create Account">
+</form>

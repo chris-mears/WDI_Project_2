@@ -9,7 +9,7 @@ const RetroModel = Schema.RetroModel
 router.get('/new', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
-    const itemId = req.params.itemId
+        //const itemId = req.params.itemId
     res.render('items/new', {
         userName: userName,
         retroId: retroId

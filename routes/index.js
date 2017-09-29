@@ -18,17 +18,28 @@ router.get('/', function(req, res, next) {
 });
 
 
-//Utilize to get login with username working
-// router.post('/login', (req, res) => {
-//     const userName = req.body.username
-//     UserModel.match({ 'username': userName })
-//         .then((user) => {
-//             res.redirect(`/${user.username}`)
-//         })
-//         .catch((err) => {
-//             console.log("Couldn't Find Username")
-//         })
+router.post('/login', (req, res) => {
+    const userName = req.body.username
+    UserModel.findOne({ 'username': userName })
+        .then((user) => {
+            res.redirect(`/${user.username}`)
+        })
+        .catch((err) => {
+            console.log("Couldn't Find Username")
+        })
 
-// })
+})
+
+router.post('/new', (req, res) => {
+    const newUser = req.body
+    UserModel.create(newUser)
+        .then((user) => {
+            res.redirect(`/${user.username}`)
+        })
+        .catch((err) => {
+            console.log("Couldn't Find Username")
+        })
+
+})
 
 module.exports = router;
