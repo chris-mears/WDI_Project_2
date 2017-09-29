@@ -211,7 +211,7 @@ router.get('/:itemId/delete', (req, res) => {
         })
 })
 
-router.get('/:itemId/delete/delete', (req, res) => {
+router.get('/:itemId/user/delete', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
     const itemId = req.params.itemId
