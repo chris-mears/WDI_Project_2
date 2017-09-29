@@ -1,15 +1,16 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+
+<h4>Login</h4>
 <form action="/login" method="POST">
-<label>Login: </label>
-<input type="text" name="username">
+<input type="text" name="username" placeholder="Login">
 <input type="submit" value="Login">
 </form>
 
+<h4>Sign Up</h4>
 <form action="/new" method="POST">
-<label>Create Account: </label>
-<input type="text" name="name">
-<input type="text" name="username">
+<input type="text" name="name" placeholder="name">
+<input type="text" name="username" placeholder="username">
 <input type="submit" value="Create Account">
 </form>
