@@ -9,18 +9,20 @@
 <input type="radio" name="type" value="action" checked> action<br>
 
 <label>Priority:</label><br>
-<input type="radio" name="priority" value="Lowest"> Lowest<br>
-<input type="radio" name="priority" value="Low"> Low<br>
-<input type="radio" name="priority" value="Normal" checked> Normal<br>
-<input type="radio" name="priority" value="High"> High<br>
-<input type="radio" name="priority" value="Highest"> Highest<br>
+<select name="priority">
+  <option value="Lowest">Lowest</option>
+  <option value="Low">Low</option>
+  <option value="Normal" selected>Normal</option>
+  <option value="High">High</option>
+  <option value="Highest">Highest</option>
+</select><br>
 
 <label>Due Date:</label>
 <input type="date" name="dueDate"><br>
 <label>Responsible:</label>
 <input type="text" name="responsible"><br>
 <label>Progress:</label><br>
-<input type="radio" name="priority" value="ToDo" checked> To Do<br>
+<input type="radio" name="progress" value="ToDo" checked> To Do<br>
 <input type="submit" value="Create Item">
 </form>
 <a href="/{{userName}}/{{retroId}}/">Return to Retro</a>
