@@ -44,7 +44,7 @@ const RetroSchema = new Schema({
     meetingDate: {
         type: Date
     },
-    participents: {
+    participants: {
         type: String
     },
     completed: {
