@@ -5,16 +5,30 @@
 <a href="/{{user.username}}/new">Create a retro</a>
 <div>
 {{#each user.retros}}
+    {{#unless this.completed}}
     <div class="retros">
         <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
         <p>{{this.description}}</p>
         <a href="/{{../user.username}}/{{this._id}}/edit">Edit Retro</a>
         <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
     </div>
+    {{/unless}}
+{{/each}}
+{{#each user.retros}}
+    {{#if this.completed}}
+         <div class="completretros">
+        <h2>Completed Retros</h2>
+        <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
+        <p>{{this.description}}</p>
+        <a href="/{{../user.username}}/{{this._id}}/edit">Edit Retro</a>
+        <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
+    </div>
+    {{/if}}
 {{/each}}
 </div>
 <div class="items">
 {{#each user.retros}}
+{{#unless this.completed}}
     <h5>{{this.title}}</h5>
     <a href="{{../user.username}}/{{this._id}}/useritem/new">Create Action Item</a>
     <ul>
@@ -25,5 +39,6 @@
     </li>
     {{/each}}
     </ul>
-    {{/each}}
+{{/unless}}
+{{/each}}
 </div>
