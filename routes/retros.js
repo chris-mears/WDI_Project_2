@@ -85,9 +85,11 @@ router.get("/:retroId", (req, res) => {
     UserModel.findOne({ username: userName })
         .then((user) => {
             const retro = user.retros.id(retroId)
+            const meetDate = retro.meetingDate.toUTCString().substring(0, 17)
             res.render('retros/show', {
                 retro: retro,
-                user: user
+                user: user,
+                meetDate: meetDate
             })
         })
         .catch((err) => {

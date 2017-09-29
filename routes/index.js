@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
         .then((users) => {
             res.render('index', {
                 title: `Retro'd`,
-                users: users
             })
         })
         .catch((err) => {

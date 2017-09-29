@@ -11,11 +11,6 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
-    type: {
-        type: String,
-        required: true,
-        enum: ['action']
-    },
     priority: {
         type: String,
         enum: ['Lowest', 'Low', 'Normal', 'High', 'Highest']
@@ -48,7 +43,7 @@ const RetroSchema = new Schema({
         type: String
     },
     meetingDate: {
-        type: Date,
+        type: Date
     },
     participents: {
         type: String

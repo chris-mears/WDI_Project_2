@@ -44,11 +44,13 @@ router.get('/:itemId/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
+            const due = item.dueDate.toISOString().substring(0, 10)
 
             res.render('items/edit', {
                 user: user,
                 retro: retro,
-                item: item
+                item: item,
+                due: due
             })
         })
         .catch((err) => {
@@ -61,15 +63,18 @@ router.get('/:itemId/retroitem/edit', (req, res) => {
     const retroId = req.params.retroId
     const itemId = req.params.itemId
 
+
     UserModel.findOne({ username: userName })
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
+            const due = item.dueDate.toISOString().substring(0, 10)
 
             res.render('items/retroedit', {
                 user: user,
                 retro: retro,
-                item: item
+                item: item,
+                due: due
             })
         })
         .catch((err) => {
@@ -86,11 +91,13 @@ router.get('/:itemId/useritem/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
+            const due = item.dueDate.toISOString().substring(0, 10)
 
             res.render('items/useredit', {
                 user: user,
                 retro: retro,
-                item: item
+                item: item,
+                due: due
             })
         })
         .catch((err) => {
@@ -185,10 +192,12 @@ router.get("/:itemId", (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
+            const due = item.dueDate.toUTCString().substring(0, 17)
             res.render('items/show', {
                 retro: retro,
                 user: user,
-                item: item
+                item: item,
+                due: due
             })
         })
         .catch((err) => {

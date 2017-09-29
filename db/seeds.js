@@ -56,7 +56,6 @@ const client_review = new RetroModel({
 const action_item_project = new ItemModel({
     title: 'Update CSS',
     description: '3 wolf moon mustache Pitchfork hoodie selfies mumblecore literally dreamcatcher art party Shoreditch sustainable meggings tofu artisan seitan',
-    type: 'action',
     priority: 'Highest',
     dueDate: new Date("October 13, 2017"),
     responsible: 'Chris',
@@ -65,7 +64,6 @@ const action_item_project = new ItemModel({
 const action_item_two_project = new ItemModel({
     title: 'Party',
     description: 'art party Shoreditch sustainable meggings tofu artisan seitan',
-    type: 'action',
     priority: 'Low',
     dueDate: new Date("October 14, 2017"),
     responsible: 'Chris',
@@ -74,7 +72,6 @@ const action_item_two_project = new ItemModel({
 const action_item_sprint = new ItemModel({
     title: 'Fire Account Manager',
     description: 'hella occupy cardigan banh mi Odd Future messenger bag Godard Schlitze',
-    type: 'action',
     priority: 'Highest',
     dueDate: new Date("September 30, 2017"),
     responsible: 'Chris',
@@ -84,7 +81,6 @@ const action_item_sprint = new ItemModel({
 const action_item_review = new ItemModel({
     title: 'Refactor sign up functionality',
     description: 'Pitchfork hoodie selfies mumblecore literally dreamcatcher art party Shoreditch sustainable meggings tofu artisan seitan +1 tousled Portland scenester synth stumptown',
-    type: 'action',
     priority: 'Highest',
     dueDate: new Date("October 3, 2017"),
     responsible: 'Trisha',
