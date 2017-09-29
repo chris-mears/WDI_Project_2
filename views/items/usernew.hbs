@@ -1,0 +1,28 @@
+<h2>Create a Action item:</h2>
+
+<form action="/{{userName}}/{{retroId}}/useritem/create" method="POST">
+<label>Title:</label>
+<input type="text" name="title"><br>
+<textarea rows="8" cols="60" name="description" placeholder="Description">
+</textarea><br>
+<label>Type:</label>
+<input type="radio" name="type" value="action" checked> action<br>
+
+<label>Priority:</label><br>
+<select name="priority">
+  <option value="Lowest">Lowest</option>
+  <option value="Low">Low</option>
+  <option value="Normal" selected>Normal</option>
+  <option value="High">High</option>
+  <option value="Highest">Highest</option>
+</select><br>
+
+<label>Due Date:</label>
+<input type="date" name="dueDate"><br>
+<label>Responsible:</label>
+<input type="text" name="responsible"><br>
+<label>Progress:</label><br>
+<input type="radio" name="progress" value="ToDo" checked> To Do<br>
+<input type="submit" value="Create Item">
+</form>
+<a href="/{{userName}}/{{retroId}}/">Return to Retro</a>

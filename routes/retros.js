@@ -70,6 +70,7 @@ router.put('/:retroId', (req, res) => {
             retro.description = updatedRetro.description
             retro.positiveNotes = updatedRetro.positiveNotes
             retro.negativeNotes = updatedRetro.negativeNotes
+            retro.completed = updatedRetro.completed
             retro.participents = updatedRetro.participents
             return user.save()
         })

@@ -16,6 +16,16 @@ router.get('/new', (req, res) => {
     })
 })
 
+router.get('/useritem/new', (req, res) => {
+    const userName = req.params.username
+    const retroId = req.params.retroId
+        //const itemId = req.params.itemId
+    res.render('items/usernew', {
+        userName: userName,
+        retroId: retroId
+    })
+})
+
 router.post('/create', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -29,6 +39,25 @@ router.post('/create', (req, res) => {
         })
         .then(() => {
             res.redirect(`/${userName}/${retroId}`)
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+})
+
+router.post('/useritem/create', (req, res) => {
+    const userName = req.params.username
+    const retroId = req.params.retroId
+    const newItem = req.body
+
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            const retro = user.retros.id(retroId)
+            retro.retroItems.push(newItem)
+            return user.save()
+        })
+        .then(() => {
+            res.redirect(`/${userName}`)
         })
         .catch((err) => {
             res.send(err);

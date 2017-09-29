@@ -8,8 +8,7 @@ const ItemSchema = new Schema({
         required: true
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     priority: {
         type: String,
@@ -47,6 +46,9 @@ const RetroSchema = new Schema({
     },
     participents: {
         type: String
+    },
+    completed: {
+        type: Boolean
     },
     retroItems: [ItemSchema]
 })

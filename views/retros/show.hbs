@@ -1,4 +1,7 @@
 <h2>{{retro.title}}</h2>
+{{#if retro.completed}}
+<h2>Retro Complete</h2>
+{{/if}}
 <a href="/{{user.username}}/{{retro._id}}/edit">Edit Retro</a>
 <a href="/{{user.username}}/{{retro._id}}/delete">Delete Retro</a>
 <a href="/{{user.username}}">Return to Retros</a>

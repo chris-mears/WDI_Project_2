@@ -16,6 +16,7 @@
 <div class="items">
 {{#each user.retros}}
     <h5>{{this.title}}</h5>
+    <a href="{{../user.username}}/{{this._id}}/useritem/new">Create Action Item</a>
     <ul>
     {{#each this.retroItems}}
     <li><a href="{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}} - {{this.priority}}</a>
