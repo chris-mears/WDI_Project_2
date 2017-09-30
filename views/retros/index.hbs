@@ -70,7 +70,12 @@
         <div class="col s12 m12 l5 items">
             <h4>Action Items:</h4>
             {{#each user.retros}} {{#unless this.completed}}
+            <div class="retro_header">
             <h5>{{this.title}}</h5>
+            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Retro" href="/{{../userName}}/{{this._id}}/useritem/new">
+                        <i class="small material-icons">add_box</i>
+            </a>
+            </div>
             <ul class="collapsible" data-collapsible="accordion">
                 {{#each this.retroItems}}
                 <li>
