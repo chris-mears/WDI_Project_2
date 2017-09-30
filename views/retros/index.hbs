@@ -1,6 +1,18 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="/{{user.username}}" class="brand-logo">Retro'd {{user.name}}</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Logout</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
 <div class="container">
-    <h2>{{user.name}}</h2>
-    <a href="/">Log out!</a>
     <div class="row flex-m">
         <div class="col s12 m12 l6 retros">
             <div class="retro_header">

@@ -9,21 +9,27 @@ const RetroModel = Schema.RetroModel
 router.get('/new', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
-        //const itemId = req.params.itemId
-    res.render('items/new', {
-        userName: userName,
-        retroId: retroId
-    })
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            const retro = user.retros.id(retroId)
+            res.render('items/usernew', {
+                user: user,
+                retro: retro
+            })
+        })
 })
 
 router.get('/useritem/new', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
-        //const itemId = req.params.itemId
-    res.render('items/usernew', {
-        userName: userName,
-        retroId: retroId
-    })
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            const retro = user.retros.id(retroId)
+            res.render('items/usernew', {
+                user: user,
+                retro: retro
+            })
+        })
 })
 
 router.post('/create', (req, res) => {
