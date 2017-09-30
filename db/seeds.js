@@ -72,7 +72,7 @@ const action_item_two_project = new ItemModel({
 const action_item_sprint = new ItemModel({
     title: 'Fire Account Manager',
     description: 'hella occupy cardigan banh mi Odd Future messenger bag Godard Schlitze',
-    priority: 'Highest',
+    priority: 'Lowest',
     dueDate: new Date("September 30, 2017"),
     responsible: 'Chris',
     progress: 'ToDo'
