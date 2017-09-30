@@ -1,46 +1,91 @@
-<h1>Welcome, {{user.name}} to your Retro's</h1>
-<a href ="/">Log out!</a>
-<div class="row">
-<div class="col s6">
-<h4>Retros:</h4>
-<a href="/{{user.username}}/new">Create a retro</a>
-{{#each user.retros}}
-    {{#unless this.completed}}
-    <div class="retros">
-        <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
-        <p>{{this.description}}</p>
-        <a href="/{{../user.username}}/{{this._id}}/edit">Edit Retro</a>
-        <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
+<div class="container">
+    <h2>{{user.name}}</h2>
+    <a href="/">Log out!</a>
+    <div class="row flex-m">
+        <div class="col s12 m12 l6 retros">
+            <h4>Retros:</h4>
+            <a href="/{{user.username}}/new">Create a retro</a> {{#each user.retros}} {{#unless this.completed}}
+            <div class="retro">
+                <h4><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h4>
+                <p>{{this.description}}</p>
+                <a href="/{{../user.username}}/{{this._id}}/useritem/new">
+                    <div class="tooltip">
+                        <i class="small material-icons">add_box</i>
+                        <span class="tooltiptext">Create Action item</span>
+                    </div>
+                </a>
+                <a href="/{{../user.username}}/{{this._id}}/edit" alt="Edit Retro">
+                    <div class="tooltip">
+                        <i class="small material-icons">edit</i>
+                        <span class="tooltiptext">Edit Retro</span>
+                    </div>
+                </a>
+
+
+                <a class="modal-trigger" href="#modal{{this._id}}">
+                    <div class="tooltip">
+                        <i class="small material-icons">delete_forever</i>
+                        <span class="tooltiptext">Delete Retro</span>
+                    </div>
+                </a>
+
+                <!-- Modal Structure -->
+                <div id="modal{{this._id}}" class="modal">
+                    <div class="modal-content">
+                        <h4>Delete Retro</h4>
+                        <p>Are you sure you want to Delete</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/{{../user.username}}/{{this._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat" alt="Delete Retro">Agree</a>
+                    </div>
+                </div>
+            </div>
+            {{/unless}} {{/each}} {{#each user.retros}} {{#if this.completed}}
+            <div class="completretros">
+                <h2>Completed Retros</h2>
+                <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
+                <p>{{this.description}}</p>
+                <a href="/{{../user.username}}/{{this._id}}/edit">Edit Retro</a>
+                <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
+            </div>
+            {{/if}} {{/each}}
+        </div>
+        <div class="col s0 m0 l1"> </div>
+        <div class="col s12 m12 l5 items">
+            <h4>Action Items:</h4>
+            {{#each user.retros}} 
+            {{#unless this.completed}}
+            <h5>{{this.title}}</h5>
+            <ul class="collection">
+                {{#each this.retroItems}}
+                <li class="collection-item"><a href="/{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}}</a>
+                    <span class="badge {{this.priority}}">{{this.priority}}</span>
+                    <a href="/{{../../userName}}/{{../this._id}}/{{this._id}}/useritem/edit">
+                    <div class="tooltip">
+                        <i class="tiny material-icons">edit</i>
+                        <span class="tooltiptext">Edit item</span>
+                    </div>
+                    </a>
+                    <a class="modal-trigger" href="#modal{{this._id}}">
+                        <div class="tooltip">
+                            <i class="tiny material-icons">delete_forever</i>
+                            <span class="tooltiptext">Delete item</span>
+                        </div>
+                    </a>
+                    <div id="modal{{this._id}}" class="modal">
+                        <div class="modal-content">
+                            <h4>Delete Action Item</h4>
+                            <p>Are you sure you want to Delete</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/{{../../userName}}/{{../this._id}}/{{this._id}}/user/delete" class="modal-action modal-close waves-effect waves-green btn-flat" alt="Delete Retro">Agree</a>
+                        </div>
+                    </div>
+        </li>
+        {{/each}}
+
+        </ul>
+        {{/unless}} {{/each}}
     </div>
-    {{/unless}}
-{{/each}}
-{{#each user.retros}}
-    {{#if this.completed}}
-         <div class="completretros">
-        <h2>Completed Retros</h2>
-        <h2><a href="/{{../user.username}}/{{this._id}}">{{this.title}}</a></h2>
-        <p>{{this.description}}</p>
-        <a href="/{{../user.username}}/{{this._id}}/edit">Edit Retro</a>
-        <a href="/{{../user.username}}/{{this._id}}/delete">Delete Retro</a>
-    </div>
-    {{/if}}
-{{/each}}
-</div>
-<div class="items col s6">
-<h4>Action Items:</h4>
-{{#each user.retros}}
-{{#unless this.completed}}
-    <h5>{{this.title}}</h5>
-    <a href="{{../user.username}}/{{this._id}}/useritem/new">Create Action Item</a>
-    <ul>
-    {{#each this.retroItems}}
-    <li><a href="{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}} - {{this.priority}}</a>
-    <a href="{{../../userName}}/{{../this._id}}/{{this._id}}/useritem/edit">Edit</a>
-    <a href="{{../../userName}}/{{../this._id}}/{{this._id}}/user/delete">Delete</a>
-    </li>
-    {{/each}}
-    </ul>
-{{/unless}}
-{{/each}}
 </div>
 </div>

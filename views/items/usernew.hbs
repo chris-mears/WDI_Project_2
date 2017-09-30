@@ -1,28 +1,49 @@
-<h2>Create a Action item:</h2>
-
-<form action="/{{userName}}/{{retroId}}/useritem/create" method="POST">
+<div class="container">
+<div class="row">
+<h3>Create Action item:</h3>
+<form action="/{{userName}}/{{retroId}}/useritem/create" method="POST" class="col s12 m9">
+<div class="input-field col s12 m12 l9">
+<input type="text" name="title">
 <label>Title:</label>
-<input type="text" name="title"><br>
-<textarea rows="8" cols="60" name="description" placeholder="Description">
-</textarea><br>
-<label>Type:</label>
-<input type="radio" name="type" value="action" checked> action<br>
+</div>
 
-<label>Priority:</label><br>
+<div class="input-field col s12 m12 l9">
+<textarea rows="8" cols="60" name="description" placeholder="Description">
+</textarea>
+</div>
+
+<div class="input-field col s12 m12 l9">
 <select name="priority">
   <option value="Lowest">Lowest</option>
   <option value="Low">Low</option>
-  <option value="Normal" selected>Normal</option>
+  <option value="Normal">Normal</option>
   <option value="High">High</option>
   <option value="Highest">Highest</option>
-</select><br>
-
+</select>
+<label>Priority:</label>
+</div>
+<br>
+<div class="input-field col s12 m12 l9">
+<input type="date" name="dueDate" class="datepicker">
 <label>Due Date:</label>
-<input type="date" name="dueDate"><br>
+</div>
+
+<div class="input-field col s12 m12 l9">
+<input type="text" name="responsible">
 <label>Responsible:</label>
-<input type="text" name="responsible"><br>
-<label>Progress:</label><br>
-<input type="radio" name="progress" value="ToDo" checked> To Do<br>
+</div>
+
+<div class="input-field col s12 m12 l9">
+<select name="progress">
+<option value="ToDo"> To Do</option>
+<option value="InProgress"> In Progress</option>
+<option value="InReview"> In Review</option>
+<option value="Done"> Done</option>
+<label>Progress:</label>
+</select>
 <input type="submit" value="Create Item">
+</div>
 </form>
+</div>
 <a href="/{{userName}}/{{retroId}}/">Return to Retro</a>
+</div>

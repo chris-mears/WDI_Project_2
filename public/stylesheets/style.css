@@ -1,8 +1,115 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
+    body {
+        padding: 10px;
+        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        background: #757575
+    }
+    
+    .container {
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
+    .items {
+        border: 1px solid black;
+        min-height: 100%;
+        background: white;
+    }
+    
+    .retros {
+        border: 1px solid black;
+        height: 100%;
+        background: white;
+    }
+    
+    a {
+        color: #00B7FF;
+    }
+    
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        /* border-bottom: 1px dotted black; */
+    }
+    
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: rgba(77, 77, 77, 0.75);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+    }
+    
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent rgba(77, 77, 77, 0.75) transparent;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    
+    .material-icons {
+        color: #474747;
+    }
+    
+    span.badge {
+        color: white;
+    }
+    
+    .Highest {
+        background: red;
+        font-size: .6em;
+        border-radius: 3px;
+    }
+    
+    .High {
+        background: #FF8800;
+        font-size: .6em;
+        border-radius: 3px;
+    }
+    
+    .Normal {
+        background: #919191;
+        font-size: .6em;
+        border-radius: 3px;
+    }
+    
+    .Low {
+        background: #B0BE77;
+        font-size: .6em;
+        border-radius: 3px;
+    }
+    
+    .Lowest {
+        background: #49AC6A;
+        font-size: .6em;
+        border-radius: 3px;
+    }
+    
+    @media only screen and (max-width: 992px) {
+        .flex-m {
+            display: flex;
+            flex-direction: column;
+            /* Stack on top */
+        }
+        .items {
+            order: 1;
+        }
+        .retros {
+            order: 2;
+        }
+    }
