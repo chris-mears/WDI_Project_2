@@ -1,18 +1,36 @@
+<div class="container">
+    <div class="row">
 <h2>Create a Retro:</h2>
-
-<form action="/{{userName}}" method="POST">
+<form action="/{{userName}}" method="POST" class="col s12 m12 l12">
+<div class="input-field col s12 m12 l12">
 <label>Title:</label>
-<input type="text" name="title"><br>
-<textarea rows="8" cols="60" name="description" placeholder="Description">
-</textarea><br>
-<textarea rows="8" cols="60" name="positiveNotes" placeholder="Positive Notes">
-</textarea><br>
-<textarea rows="8" cols="60" name="negativeNotes" placeholder="Negative Notes">
-</textarea><br>
+<input type="text" name="title">
+</div>
+<div class="input-field col s12 m12 l12">
+<label>Description:</label>
+<textarea rows="8" cols="60" name="description" placeholder="Description" class="materialize-textarea">
+</textarea>
+</div>
+<div class="input-field col s12 m12 l6">
+<label>What went Right:</label>
+<textarea rows="8" cols="60" name="positiveNotes" placeholder="Positive Notes" class="materialize-textarea">
+</textarea>
+</div>
+<div class="input-field col s12 m12 l6">
+<label>What went Wrong:</label>
+<textarea rows="8" cols="60" name="negativeNotes" placeholder="Negative Notes" class="materialize-textarea">
+</textarea>
+</div>
+<div class="input-field col s12 m12 l12">
 <label>Meeting Date:</label>
-<input type="date" name="meetingDate"><br>
+<input type="date" name="meetingDate" class="datepicker">
+</div>
+<div class="input-field col s12 m12 l12">
 <label>Participents:</label>
-<input type="text" name="participants"><br>
+<input type="text" name="participants">
+</div>
 <input type="submit" value="Create Retro">
 </form>
+</div>
 <a href="/{{userName}}">Return to Retros</a>
+</div>

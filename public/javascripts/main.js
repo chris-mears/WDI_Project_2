@@ -15,3 +15,19 @@ $('.datepicker').pickadate({
     close: 'Ok',
     closeOnSelect: false // Close upon selecting a date,
 });
+$(document).ready(function() {
+    $('.tooltipped').tooltip({ delay: 50, html: true });
+});
+
+$(document).ready(function() {
+    $('.collapsible').collapsible();
+});
+
+$(document).ready(function() {
+    let date = $('.duedate').html()
+    if (date !== undefined) {
+        date = date.substring(0, 15);
+        $('.duedate').html(date);
+    }
+
+});

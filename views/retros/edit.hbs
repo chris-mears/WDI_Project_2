@@ -1,21 +1,37 @@
-<h2>Update Retro:</h2>
+<div class="container">
+    <div class="row">
+        <h3>Update Retro:</h3>
+        <form action="/{{user.username}}/{{retro._id}}?_method=PUT" method="POST" class="col s12 m12 l12">
+            <div class="input-field col s12 m12 l12">
+                <label>Title:</label>
+                <input type="text" name="title" value="{{retro.title}}">
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <label>Description:</label>
+                <textarea name="description" placeholder="Description" class="materialize-textarea">{{retro.description}}</textarea>
+            </div>
 
-<form action="/{{user.username}}/{{retro._id}}?_method=PUT" method="POST">
-<label>Title:</label>
-<input type="text" name="title" value="{{retro.title}}"><br>
-<textarea rows="8" cols="60" name="description" placeholder="Description">
-{{retro.description}}
-</textarea><br>
-<textarea rows="8" cols="60" name="positiveNotes" placeholder="Positive Notes">
-{{retro.positiveNotes}}
-</textarea><br>
-<textarea rows="8" cols="60" name="negativeNotes" placeholder="Negative Notes">
-{{retro.negativeNotes}}
-</textarea><br>
-<label>Participents:</label>
-<input type="text" name="participants" value="
-{{retro.participants}}"><br>
-<input type="radio" name="completed" value="true"> <label>Complete</label><br>
-<input type="submit" value="Update Retro">
-</form>
-<a href="/{{user.username}}">Return to Retros</a>
+            <div class="input-field col s12 m12 l6">
+                <label>What Went Right:</label>
+                <textarea name="positiveNotes" placeholder="Positive Notes" class="materialize-textarea">{{retro.positiveNotes}}</textarea>
+            </div>
+
+            <div class="input-field col s12 m12 l6">
+                <label>What Went Wrong:</label>
+                <textarea name="negativeNotes" placeholder="Negative Notes" class="materialize-textarea">{{retro.negativeNotes}}</textarea>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <label>Participents:</label>
+                <input type="text" name="participants" value="{{retro.participants}}">
+            </div>
+                <p>
+                <input class="filled-in" type="checkbox" id="completed" name="completed" value="true" />
+                <label for="completed">Complete</label>
+                </p>
+            <div class="input-field col s12 m12 l12">
+                <input type="submit" value="Update Retro">
+            </div>
+        </form>
+    </div>
+    <a href="/{{user.username}}">Return to Retros</a>
+</div>

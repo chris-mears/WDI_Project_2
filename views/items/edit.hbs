@@ -2,14 +2,14 @@
 <div class="container">
 <div class="row">
 <h3>Update Action item:</h3>
-<form action="/{{user.username}}/{{retro._id}}/{{item._id}}/update?_method=PUT" method="POST" class="col s12 m9">
+<form action="/{{user.username}}/{{retro._id}}/{{item._id}}/update?_method=PUT" method="POST" class="col s12 m12 l9">
 <div class="input-field col s12 m12 l9">
 <input type="text" name="title" value="{{item.title}}">
 <label>Title:</label>
 </div>
 
 <div class="input-field col s12 m12 l9">
-<textarea rows="8" cols="60" name="description" placeholder="Description">
+<textarea rows="8" cols="60" name="description" placeholder="Description" class="materialize-textarea">
 {{item.description}}
 </textarea>
 </div>
