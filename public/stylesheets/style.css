@@ -24,7 +24,16 @@
     .retro_header {
         display: flex;
         align-items: center;
-        justify-content: space-between
+        justify-content: space-between;
+    }
+    
+    .header {
+        display: flex;
+        align-items: center;
+    }
+    
+    .pad-left {
+        margin-left: 30px;
     }
     
     a {
