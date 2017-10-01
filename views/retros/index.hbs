@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="/{{user.username}}" class="brand-logo">Retro'd {{user.name}}</a>
+      <a href="/{{user.username}}" class="brand-logo">Retro'd</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/">Logout</a></li>
@@ -13,6 +13,7 @@
 
 <main>
 <div class="container">
+    <div class="header"><h4>{{user.name}}</h4></div>
     <div class="row flex-m">
         <div class="col s12 m12 l6 retros">
             <div class="retro_header">
@@ -84,7 +85,7 @@
             {{#each user.retros}} {{#unless this.completed}}
             <div class="retro_header">
             <h5>{{this.title}}</h5>
-            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Retro" href="/{{../userName}}/{{this._id}}/item/useritem/new">
+            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Action Item" href="/{{../userName}}/{{this._id}}/item/useritem/new">
                         <i class="small material-icons">add_box</i>
             </a>
             </div>
@@ -92,7 +93,6 @@
                 {{#each this.retroItems}}
                 <li>
                     <div class="collapsible-header">
-                        <a href="/{{../../userName}}/{{../this._id}}/item">{{this.title}}</a>
                         <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit item" href="/{{../../userName}}/{{../this._id}}/item/{{this._id}}/useritem/edit"><i class="tiny material-icons">edit</i></a>
 
                         <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}">
@@ -108,6 +108,7 @@
                                     alt="Delete Retro">Agree</a>
                             </div>
                         </div>
+                        <a href="/{{../../userName}}/{{../this._id}}/item">{{this.title}}</a>
                         <span class="badge {{this.priority}}">{{this.priority}}</span>
                     </div>
                     <div class="collapsible-body"><span>Responsible: {{this.responsible}}<br>Due Date: <span class='duedate'>{{this.dueDate}}</span></span>
