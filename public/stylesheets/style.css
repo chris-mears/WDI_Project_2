@@ -39,6 +39,11 @@
         align-items: center;
     }
     
+    .logo {
+        width: 10%;
+        height: 10%;
+    }
+    
     .pad-left {
         margin-left: 30px;
     }
