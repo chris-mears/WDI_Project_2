@@ -20,9 +20,8 @@ const ItemSchema = new Schema({
     responsible: {
         type: String
     },
-    progress: {
-        type: String,
-        enum: ['ToDo', 'InProgress', 'InReview', 'Done']
+    completed: {
+        type: Boolean,
     }
 
 })

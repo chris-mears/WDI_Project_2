@@ -1,6 +1,13 @@
     body {
-        padding: 10px;
+        /* padding: 10px; */
         font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+    
+    main {
+        flex: 1 0 auto;
     }
     
     .container {
@@ -71,7 +78,12 @@
     .equal {
         width: 50%;
         margin: 5px;
+    }
+    
+    .equal p {
         border: 1px solid black;
+        padding: .5em;
+        margin: .2em;
     }
     
     .Highest {
@@ -97,6 +109,10 @@
     .Lowest {
         background: #49AC6A;
         border-radius: 3px;
+    }
+    
+    .page-footer {
+        padding-top: 0;
     }
     
     @media only screen and (max-width: 992px) {

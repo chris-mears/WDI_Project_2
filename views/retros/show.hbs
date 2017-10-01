@@ -14,6 +14,7 @@
 </nav>
 
 <!-- Main Section -->
+<main>
 <div class="container">
   <div class="header">
   <h4>{{retro.title}}</h4>
@@ -37,7 +38,7 @@
     </div>
   </div>
   <div class="row flex-m">
-    <div class="col s12 m12 l6 retros">
+    <div class="col s12 m12 l7 retros">
       <h5>Description:</h5>
       <p>{{retro.description}}</p>
       <div>
@@ -57,7 +58,7 @@
       </div>
     </div>
     <div class="col s0 m0 l1"> </div>
-    <div class="col s12 m12 l5 items">
+    <div class="col s12 m12 l4 items">
       <div class="retro_header">
       <h4>Action Items:</h4>
       <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Action Item"href="/{{user.username}}/{{retro._id}}/item/retroitem/new"><i class="small material-icons">add_box</i></a>
@@ -92,3 +93,4 @@
     </div>
   </div>
 </div>
+</main>
