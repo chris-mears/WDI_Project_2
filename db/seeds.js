@@ -59,7 +59,6 @@ const action_item_project = new ItemModel({
     priority: 'Highest',
     dueDate: new Date("October 13, 2017"),
     responsible: 'Chris',
-    progress: 'ToDo'
 })
 const action_item_two_project = new ItemModel({
     title: 'Party',
@@ -84,7 +83,6 @@ const action_item_review = new ItemModel({
     priority: 'Highest',
     dueDate: new Date("October 3, 2017"),
     responsible: 'Trisha',
-    progress: 'ToDo'
 })
 
 
