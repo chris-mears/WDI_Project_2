@@ -41,6 +41,10 @@
         padding: .5rem;
     }
     
+    .collapsible-header i {
+        margin-right: 0;
+    }
+    
     .material-icons {
         color: #474747;
     }
@@ -48,6 +52,17 @@
     span.badge {
         color: white;
         font-size: .6em;
+    }
+    
+    .flexed {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .equal {
+        width: 50%;
+        margin: 5px;
+        border: 1px solid black;
     }
     
     .Highest {
@@ -86,5 +101,11 @@
         }
         .retros {
             order: 2;
+        }
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .flexed {
+            display: block;
         }
     }

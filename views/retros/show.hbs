@@ -1,47 +1,90 @@
 <nav>
-    <div class="nav-wrapper">
-      <a href="/{{user.username}}" class="brand-logo">Retro'd {{user.name}}</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/{{user.username}}">Retros</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/{{user.username}}">Retros</a></li>
-        <li><a href="/">Logout</a></li>
+  <div class="nav-wrapper">
+    <a href="/{{user.username}}" class="brand-logo">Retro'd {{user.name}}</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/{{user.username}}">Retros</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a href="/{{user.username}}">Retros</a></li>
+      <li><a href="/">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Section -->
+<div class="container">
+  <h4>{{retro.title}}</h4>
+  {{#if retro.completed}}
+  <h4>Retro Complete</h4>
+  {{/if}}
+  <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit Retro" href="/{{user.username}}/{{retro._id}}/edit"><i class="small material-icons">edit</i></a>
+  <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete Retro" href="#modal{{this._id}}">
+                        <i class="small material-icons">delete_forever</i>
+                </a>
+
+  <!-- Modal Structure -->
+  <div id="modal{{this._id}}" class="modal">
+    <div class="modal-content">
+      <h4>Delete Retro</h4>
+      <p>Are you sure you want to Delete</p>
+    </div>
+    <div class="modal-footer">
+      <a href="/{{user.username}}/{{retro._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat" alt="Delete Retro">Agree</a>
+    </div>
+  </div>
+  <div class="row flex-m">
+    <div class="col s12 m12 l6 retros">
+      <h5>Description:</h5>
+      <p>{{retro.description}}</p>
+      <div>
+        <p><strong>Meeting Date:</strong><span> {{meetDate}}</span></p>
+        <p><strong>Participants:</strong><span> {{retro.participants}}</span></p>
+      </div>
+      <h5>The Good and The Bad</h5>
+      <div class="flexed">
+        <div class="equal">
+          <h6>What went well:</h6>
+          <p>{{retro.positiveNotes}}</p>
+        </div>
+        <div class="equal">
+          <h6>What went wrong:</h6>
+          <p>{{retro.negativeNotes}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s0 m0 l1"> </div>
+    <div class="col s12 m12 l5 items">
+      <h4>Meeting Items:</h4>
+      <a href="/{{user.username}}/{{retro._id}}/new">Create Action Item</a>
+      <ul class="collapsible" data-collapsible="accordion">
+        {{#each retro.retroItems}}
+          <li>
+            <div class="collapsible-header">
+            <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}">
+            {{this.title}}</a>
+            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit item" href="/{{../user.username}}/{{../retro._id}}/{{this._id}}/retroitem/edit"><i class="tiny material-icons">edit</i></a>
+            <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}"><i class="tiny material-icons">delete_forever</i></a>
+
+            <div id="modal{{this._id}}" class="modal">
+              <div class="modal-content">
+                <h5>Delete Action Item</h5>
+                <p>Are you sure you want to Delete</p>
+              </div>
+              <div class="modal-footer">
+                <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
+                  alt="Delete Retro">Agree</a>
+              </div>
+            </div>
+            <span class="badge {{this.priority}}">{{this.priority}}</span>
+        </div>
+        <div class="collapsible-body">
+          <span>Responsible: {{this.responsible}}<br>Progress: {{this.progress}}<br>Due Date: <span class='duedate'>{{this.dueDate}}</span></span>
+        </div>
+        </li>
+        {{/each}}
       </ul>
     </div>
-  </nav>
-
-
-<h2>{{retro.title}}</h2>
-{{#if retro.completed}}
-<h2>Retro Complete</h2>
-{{/if}}
-<a href="/{{user.username}}/{{retro._id}}/edit">Edit Retro</a>
-<a href="/{{user.username}}/{{retro._id}}/delete">Delete Retro</a>
-<h3>Description:</h3>
-<p>{{retro.description}}</p>
-<h3>The Good and The Bad</h3>
-<h4>The Good:</h4>
-<p>{{retro.positiveNotes}}</p>
-
-<h4>The Bad:</h4>
-<p>{{retro.negativeNotes}}</p>
-
-<div>
-    <p><strong>Meeting Date:</strong><span> {{meetDate}}</span></p>
-    <p><strong>Participants:</strong><span> {{retro.participants}}</span></p>
+  </div>
 </div>
-<h4>Meeting Items:</h4>
-<a href="/{{user.username}}/{{retro._id}}/new">Create Action Item</a>
-<ul>
-    {{#each retro.retroItems}}
-        <li>
-            <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}">
-            <span>{{this.title}}</span></a>
-            <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}/retroitem/edit">Edit</a>
-            <a href="/{{../user.username}}/{{../retro._id}}/{{this._id}}/delete">Delete</a>
-            </li>
-    {{/each}}
-</ul>
