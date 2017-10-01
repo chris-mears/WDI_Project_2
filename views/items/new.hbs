@@ -5,11 +5,13 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="/{{user.username}}">Retros</a></li>
         <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
         <li><a href="/">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="/{{user.username}}">Retros</a></li>
         <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
         <li><a href="/">Logout</a></li>
       </ul>
     </div>
@@ -18,7 +20,7 @@
 <div class="container">
 <div class="row">
 <h3>Create Action item:</h3>
-<form action="/{{userName}}/{{retroId}}/create" method="POST" class="col s12 m9">
+<form action="/{{userName}}/{{retroId}}/item/create" method="POST" class="col s12 m9">
 <div class="input-field col s12 m12 l9">
 <input type="text" name="title">
 <label>Title:</label>

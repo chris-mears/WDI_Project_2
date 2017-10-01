@@ -84,7 +84,7 @@
             {{#each user.retros}} {{#unless this.completed}}
             <div class="retro_header">
             <h5>{{this.title}}</h5>
-            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Retro" href="/{{../userName}}/{{this._id}}/useritem/new">
+            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Retro" href="/{{../userName}}/{{this._id}}/item/useritem/new">
                         <i class="small material-icons">add_box</i>
             </a>
             </div>
@@ -92,8 +92,8 @@
                 {{#each this.retroItems}}
                 <li>
                     <div class="collapsible-header">
-                        <a href="/{{../../userName}}/{{../this._id}}/{{this._id}}">{{this.title}}</a>
-                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit item" href="/{{../../userName}}/{{../this._id}}/{{this._id}}/useritem/edit"><i class="tiny material-icons">edit</i></a>
+                        <a href="/{{../../userName}}/{{../this._id}}/item">{{this.title}}</a>
+                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit item" href="/{{../../userName}}/{{../this._id}}/item/{{this._id}}/useritem/edit"><i class="tiny material-icons">edit</i></a>
 
                         <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}">
                             <i class="tiny material-icons">delete_forever</i>
@@ -104,7 +104,7 @@
                                 <p>Are you sure you want to Delete</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="/{{../../userName}}/{{../this._id}}/{{this._id}}/user/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
+                                <a href="/{{../../userName}}/{{../this._id}}/item/{{this._id}}/user/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
                                     alt="Delete Retro">Agree</a>
                             </div>
                         </div>

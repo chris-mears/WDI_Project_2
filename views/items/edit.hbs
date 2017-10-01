@@ -5,13 +5,13 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="/{{user.username}}">Retros</a></li>
         <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}/{{retro._id}}/{{item._id}}">Return to Item</a></li>
+        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}}</a></li>
         <li><a href="/">Logout</a></li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="/{{user.username}}">Retros</a></li>
         <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}/{{retro._id}}/{{item._id}}">Return to Item</a></li>
+        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}}</a></li>
         <li><a href="/">Logout</a></li>
       </ul>
     </div>
@@ -20,7 +20,7 @@
 <div class="container">
 <div class="row">
 <h3>Update Action item:</h3>
-<form action="/{{user.username}}/{{retro._id}}/{{item._id}}/update?_method=PUT" method="POST" class="col s12 m12 l9">
+<form action="/{{user.username}}/{{retro._id}}/item/{{item._id}}/update?_method=PUT" method="POST" class="col s12 m12 l9">
 <div class="input-field col s12 m12 l9">
 <input type="text" name="title" value="{{item.title}}">
 <label>Title:</label>

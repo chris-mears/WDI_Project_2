@@ -6,6 +6,23 @@ const RetroModel = Schema.RetroModel
 
 
 
+router.get("/", (req, res) => {
+    const userName = req.params.username
+    const retroId = req.params.retroId
+
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            const retro = user.retros.id(retroId)
+            res.render('items/index', {
+                retro: retro,
+                user: user,
+            })
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+})
+
 router.get('/new', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -32,7 +49,39 @@ router.get('/useritem/new', (req, res) => {
         })
 })
 
+router.get('/retroitem/new', (req, res) => {
+    const userName = req.params.username
+    const retroId = req.params.retroId
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            const retro = user.retros.id(retroId)
+            res.render('items/retronew', {
+                user: user,
+                retro: retro
+            })
+        })
+})
+
 router.post('/create', (req, res) => {
+    const userName = req.params.username
+    const retroId = req.params.retroId
+    const newItem = req.body
+
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            const retro = user.retros.id(retroId)
+            retro.retroItems.push(newItem)
+            return user.save()
+        })
+        .then(() => {
+            res.redirect(`/${userName}/${retroId}/item`)
+        })
+        .catch((err) => {
+            res.send(err);
+        })
+})
+
+router.post('/retroitem/create', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
     const newItem = req.body
@@ -79,7 +128,10 @@ router.get('/:itemId/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
-            const due = item.dueDate.toISOString().substring(0, 10)
+            let due = item.dueDate
+            if (due !== null) {
+                due = item.dueDate.toISOString().substring(0, 10)
+            }
 
             res.render('items/edit', {
                 user: user,
@@ -103,7 +155,10 @@ router.get('/:itemId/retroitem/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
-            const due = item.dueDate.toISOString().substring(0, 10)
+            let due = item.dueDate
+            if (due !== null) {
+                due = item.dueDate.toISOString().substring(0, 10)
+            }
 
             res.render('items/retroedit', {
                 user: user,
@@ -126,7 +181,10 @@ router.get('/:itemId/useritem/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
-            const due = item.dueDate.toISOString().substring(0, 10)
+            let due = item.dueDate
+            if (due !== null) {
+                due = item.dueDate.toISOString().substring(0, 10)
+            }
 
             res.render('items/useredit', {
                 user: user,
@@ -218,29 +276,23 @@ router.put('/:itemId/user/update', (req, res) => {
         })
 })
 
-router.get("/:itemId", (req, res) => {
+
+router.get('/:itemId/delete', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
     const itemId = req.params.itemId
-
     UserModel.findOne({ username: userName })
         .then((user) => {
             const retro = user.retros.id(retroId)
-            const item = retro.retroItems.id(itemId)
-            const due = item.dueDate.toUTCString().substring(0, 17)
-            res.render('items/show', {
-                retro: retro,
-                user: user,
-                item: item,
-                due: due
-            })
+            const item = retro.retroItems.id(itemId).remove()
+            return user.save()
         })
-        .catch((err) => {
-            res.send(err);
+        .then(() => {
+            res.redirect(`/${userName}/${retroId}/item`)
         })
 })
 
-router.get('/:itemId/delete', (req, res) => {
+router.get('/:itemId/retro/delete', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
     const itemId = req.params.itemId

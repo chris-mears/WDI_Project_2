@@ -11,24 +11,24 @@
       <ul class="side-nav" id="mobile-demo">
         <li><a href="/{{user.username}}">Retros</a></li>
         <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
+                <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
         <li><a href="/">Logout</a></li>
       </ul>
     </div>
   </nav>
 
+
 <div class="container">
 <div class="row">
-<h3>Update Action item:</h3>
-<form action="/{{user.username}}/{{retro._id}}/item/{{item._id}}/retro/update?_method=PUT" method="POST" class="col s12 m9">
+<h3>Create Action item:</h3>
+<form action="/{{user.username}}/{{retro._id}}/item/retroitem/create" method="POST" class="col s12 m9">
 <div class="input-field col s12 m12 l9">
-<input type="text" name="title" value="{{item.title}}">
+<input type="text" name="title">
 <label>Title:</label>
 </div>
 
 <div class="input-field col s12 m12 l9">
 <textarea rows="8" cols="60" name="description" placeholder="Description" class="materialize-textarea">
-{{item.description}}
 </textarea>
 </div>
 
@@ -36,7 +36,7 @@
 <select name="priority">
   <option value="Lowest">Lowest</option>
   <option value="Low">Low</option>
-  <option value="Normal" selected>Normal</option>
+  <option value="Normal">Normal</option>
   <option value="High">High</option>
   <option value="Highest">Highest</option>
 </select>
@@ -44,24 +44,24 @@
 </div>
 <br>
 <div class="input-field col s12 m12 l9">
-<input type="date" name="dueDate" value="{{due}}" class="datepicker">
+<input type="date" name="dueDate" class="datepicker">
 <label>Due Date:</label>
 </div>
 
 <div class="input-field col s12 m12 l9">
-<input type="text" name="responsible" value="{{item.responsible}}">
+<input type="text" name="responsible">
 <label>Responsible:</label>
 </div>
 
 <div class="input-field col s12 m12 l9">
 <select name="progress">
-<option value="ToDo" selected> To Do</option>
+<option value="ToDo"> To Do</option>
 <option value="InProgress"> In Progress</option>
 <option value="InReview"> In Review</option>
 <option value="Done"> Done</option>
 <label>Progress:</label>
 </select>
-<input type="submit" value="Update Item">
+<input type="submit" value="Create Item">
 </div>
 </form>
 </div>
