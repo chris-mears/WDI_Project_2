@@ -75,7 +75,7 @@ router.put('/:retroId', (req, res) => {
             retro.positiveNotes = updatedRetro.positiveNotes
             retro.negativeNotes = updatedRetro.negativeNotes
             retro.completed = updatedRetro.completed
-            retro.participents = updatedRetro.participents
+            retro.participants = updatedRetro.participants
             retro.meetingDate = updatedRetro.meetingDate
             return user.save()
         })
