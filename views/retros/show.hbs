@@ -3,11 +3,11 @@
     <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="/{{user.username}}">Retros</a></li>
+      <li><a href="/{{user.username}}">Home</a></li>
       <li><a href="/">Logout</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
-      <li><a href="/{{user.username}}">Retros</a></li>
+      <li><a href="/{{user.username}}">Home</a></li>
       <li><a href="/">Logout</a></li>
     </ul>
   </div>
@@ -48,6 +48,8 @@
   </div>
   <div class="row flex-m">
     <div class="col s12 m12 l7 retros">
+      <div class="card">
+        <div class="card-content">
       {{#if retro.completed}}
   <h4>Retro Complete</h4>
   {{/if}}
@@ -69,8 +71,12 @@
         </div>
       </div>
     </div>
+    </div>
+    </div>
     <div class="col s0 m0 l1"> </div>
     <div class="col s12 m12 l4 items">
+      <div class="card">
+        <div class="card-content">
       <div class="retro_header">
       <h4><a href="/{{user.username}}/{{retro._id}}/item">Action Items:</a></h4>
       <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Action Item"href="/{{user.username}}/{{retro._id}}/item/retroitem/new"><i class="small material-icons">add_box</i></a>
@@ -138,5 +144,7 @@
       </ul>
     </div>
   </div>
+</div>
+</div>
 </div>
 </main>

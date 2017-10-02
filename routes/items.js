@@ -74,8 +74,6 @@ router.post('/create', (req, res) => {
             return user.save()
         })
         .then(() => {
-            // res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
-            // return res.redirect('back')
             res.redirect(`/${userName}/${retroId}/item`)
         })
         .catch((err) => {

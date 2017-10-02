@@ -16,18 +16,6 @@
         margin: 0 auto;
     }
     
-    .items {
-        border: 1px solid black;
-        min-height: 100%;
-        background: white;
-    }
-    
-    .retros {
-        border: 1px solid black;
-        height: 100%;
-        background: white;
-    }
-    
     .retro_header {
         display: flex;
         align-items: center;
