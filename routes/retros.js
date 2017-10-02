@@ -50,10 +50,14 @@ router.get('/:retroId/edit', (req, res) => {
     UserModel.findOne({ username: userName })
         .then((user) => {
             const retro = user.retros.id(retroId)
-
+            let meetDate = retro.meetingDate
+            if (meetDate !== null) {
+                meetDate = retro.meetingDate.toISOString().substring(0, 10)
+            }
             res.render('retros/edit', {
                 user: user,
-                retro: retro
+                retro: retro,
+                meetDate: meetDate
             })
         })
 })
@@ -72,6 +76,7 @@ router.put('/:retroId', (req, res) => {
             retro.negativeNotes = updatedRetro.negativeNotes
             retro.completed = updatedRetro.completed
             retro.participents = updatedRetro.participents
+            retro.meetingDate = updatedRetro.meetingDate
             return user.save()
         })
         .then(() => {
@@ -86,11 +91,9 @@ router.get("/:retroId", (req, res) => {
     UserModel.findOne({ username: userName })
         .then((user) => {
             const retro = user.retros.id(retroId)
-            const meetDate = retro.meetingDate.toUTCString().substring(0, 17)
             res.render('retros/show', {
                 retro: retro,
                 user: user,
-                meetDate: meetDate
             })
         })
         .catch((err) => {
