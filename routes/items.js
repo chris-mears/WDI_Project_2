@@ -217,7 +217,7 @@ router.put('/:itemId/update', (req, res) => {
             return user.save()
         })
         .then(() => {
-            res.redirect(`/${userName}/${retroId}/${itemId}`)
+            res.redirect(`/${userName}/${retroId}/item`)
         })
         .catch((err) => {
             res.send(err);

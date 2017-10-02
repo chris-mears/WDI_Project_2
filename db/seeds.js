@@ -25,7 +25,7 @@ UserModel.remove({}, function(err) {
     console.log(err);
 })
 
-const chris = new UserModel({ name: 'Chris Mears', username: "nightmears" })
+const chris = new UserModel({ name: 'Chris Mears', username: "mears" })
 const trisha = new UserModel({ name: 'Trisha Schinner', username: "macy_miller" })
 
 const project_one = new RetroModel({
