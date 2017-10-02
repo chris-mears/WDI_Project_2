@@ -215,7 +215,7 @@ router.put('/:itemId/update', (req, res) => {
             item.priority = updatedItem.priority
             item.dueDate = updatedItem.dueDate
             item.responsible = updatedItem.responsible
-            item.progress = updatedItem.progress
+            item.completed = updatedItem.completed
             return user.save()
         })
         .then(() => {
@@ -241,7 +241,7 @@ router.put('/:itemId/retro/update', (req, res) => {
             item.priority = updatedItem.priority
             item.dueDate = updatedItem.dueDate
             item.responsible = updatedItem.responsible
-            item.progress = updatedItem.progress
+            item.completed = updatedItem.completed
             return user.save()
         })
         .then(() => {
@@ -267,7 +267,7 @@ router.put('/:itemId/user/update', (req, res) => {
             item.priority = updatedItem.priority
             item.dueDate = updatedItem.dueDate
             item.responsible = updatedItem.responsible
-            item.progress = updatedItem.progress
+            item.completed = updatedItem.completed
             return user.save()
         })
         .then(() => {

@@ -97,13 +97,14 @@
                 <h4>Action Items:</h4>
                 {{#each user.retros}} {{#unless this.completed}}
                 <div class="retro_header">
-                    <h5>{{this.title}}</h5>
+                    <h5><a href="/{{../user.username}}/{{this._id}}/item">{{this.title}} Items</a></h5>
                     <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Action Item" href="/{{../userName}}/{{this._id}}/item/useritem/new">
                         <i class="small material-icons">add_box</i>
             </a>
                 </div>
                 <ul class="collapsible" data-collapsible="accordion">
                     {{#each this.retroItems}}
+                    {{#unless this.completed}}
                     <li>
                         <div class="collapsible-header">
                             <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit item" href="/{{../../userName}}/{{../this._id}}/item/{{this._id}}/useritem/edit"><i class="tiny material-icons">edit</i></a>
@@ -121,12 +122,47 @@
                                         alt="Delete Retro">Agree</a>
                                 </div>
                             </div>
-                            <a href="/{{../../userName}}/{{../this._id}}/item">{{this.title}}</a>
+                            <a href="/{{../../userName}}/{{../this._id}}/item#{{this._id}}">{{this.title}}</a>
                             <span class="badge {{this.priority}}">{{this.priority}}</span>
                         </div>
                         <div class="collapsible-body"><span>Responsible: {{this.responsible}}<br>Due Date: <span class='duedate'>{{this.dueDate}}</span></span>
                         </div>
                     </li>
+                    {{/unless}}
+                    {{/each}}
+
+
+                    {{#each this.retroItems}}
+                    {{#if this.completed}}
+                    <li>
+                        <div class="collapsible-header">
+                            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit item" href="/{{../../userName}}/{{../this._id}}/item/{{this._id}}/useritem/edit"><i class="tiny material-icons">edit</i></a>
+
+                            <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}">
+                            <i class="tiny material-icons">delete_forever</i>
+                    </a>
+                            <div id="modal{{this._id}}" class="modal">
+                                <div class="modal-content">
+                                    <h5>Delete Action Item</h5>
+                                    <p>Are you sure you want to Delete</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="/{{../../userName}}/{{../this._id}}/item/{{this._id}}/user/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
+                                        alt="Delete Retro">Agree</a>
+                                </div>
+                            </div>
+                            <a href="/{{../../userName}}/{{../this._id}}/item#{{this._id}}">{{this.title}}</a>
+                            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Item Complete">
+            <i class="tiny material-icons">check_box</i></a>
+                            <span class="badge {{this.priority}}">{{this.priority}}</span>
+                        </div>
+                        <div class="collapsible-body"><span>
+                            <strong>COMPLETED</strong><br>
+                            Responsible: {{this.responsible}}<br>Due Date: <span class='duedate'>{{this.dueDate}}</span>
+                        </span>
+                        </div>
+                    </li>
+                    {{/if}}
                     {{/each}}
 
                 </ul>
