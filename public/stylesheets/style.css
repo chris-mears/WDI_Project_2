@@ -40,8 +40,8 @@
     }
     
     .logo {
-        width: 10%;
-        height: 10%;
+        width: 50px;
+        height: 50px;
     }
     
     .pad-left {
@@ -164,6 +164,26 @@
     
     .page-footer {
         padding-top: 0;
+    }
+    
+    .blue {
+        background: #419cd3;
+    }
+    
+    .red {
+        background: #F76771;
+    }
+    
+    .orange {
+        background: #F9AD71;
+    }
+    
+    .yellow {
+        background: #FEE146;
+    }
+    
+    .green {
+        background: #CFE290;
     }
     
     @media only screen and (max-width: 992px) {

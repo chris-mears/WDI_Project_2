@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue">
       <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
@@ -13,11 +13,22 @@
     </div>
   </nav>
 
-<main>
+<main class="light-blue lighten-5">
+
+<div class="user-header">
+        <div class="user-shadow">
+            <div class="user-title">
+                <div class="header">
+                    <h4>{{user.name}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <div class="container">
     <div class="row">
 <h2>Create a Retro:</h2>
-<form action="/{{userName}}" method="POST" class="col s12 m12 l12">
+<form action="/{{user.username}}" method="POST" class="col s12 m12 l12">
 <div class="input-field col s12 m12 l12">
 <label>Title:</label>
 <input type="text" name="title">
@@ -45,9 +56,11 @@
 <label>Participents:</label>
 <input type="text" name="participants">
 </div>
+<h5>Add Action Items:</h5>
 <input type="submit" value="Create Retro">
 </form>
+
 </div>
-<a href="/{{userName}}">Return to Retros</a>
+<a href="/{{user.username}}">Return to Retros</a>
 </div>
 </main>

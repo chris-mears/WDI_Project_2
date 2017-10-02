@@ -1,5 +1,5 @@
 <nav>
-    <div class="nav-wrapper blue darken-3">
+    <div class="nav-wrapper blue">
       <a href="/" class="brand-logo"><img class="logo" src="/images/logo.png"></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
@@ -8,11 +8,7 @@
       </ul>
     </div>
   </nav>
-<main>
-{{!-- <div class="main-header">
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-</div> --}}
+<main class="light-blue lighten-5">
 
 <div class = "main-header">
    <div class = "shadow">
@@ -32,7 +28,7 @@
 <div class="col s12 m5 l5">
 <h4>Login</h4>
 <form action="/login" method="POST">
-<input type="text" name="username" placeholder="Login">
+<input type="text" name="username" placeholder="Login" class="white">
 <input type="submit" value="Login">
 </form>
 </div>
@@ -40,8 +36,8 @@
 <div class="col s12 m5 l5">
 <h4>Sign Up</h4>
 <form action="/new" method="POST">
-<input type="text" name="name" placeholder="name">
-<input type="text" name="username" placeholder="username">
+<input type="text" name="name" placeholder="name" class="white">
+<input type="text" name="username" placeholder="username" class="white">
 <input type="submit" value="Create Account">
 </form>
 </div>

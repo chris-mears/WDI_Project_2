@@ -21,9 +21,15 @@ router.get('/', (req, res) => {
 
 router.get('/new', (req, res) => {
     const userName = req.params.username
-    res.render('retros/new', {
-        userName: userName
-    })
+    UserModel.findOne({ username: userName })
+        .then((user) => {
+            res.render('retros/new', {
+                user: user
+            })
+        })
+        .catch((err) => {
+            res.send(err);
+        })
 })
 
 router.post('/', (req, res) => {
