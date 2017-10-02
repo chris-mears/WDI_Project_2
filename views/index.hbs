@@ -9,20 +9,42 @@
     </div>
   </nav>
 <main>
+{{!-- <div class="main-header">
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+</div> --}}
+
+<div class = "main-header">
+   <div class = "shadow">
+    <div class="title">
+    <img src="/images/logo.svg" class="logo">
+    <h1>{{title}}</h1>
+    </div>
+    <div>
+    <p>Welcome to {{title}}. An app for recording the Action items that come out of retrospectives.</p>
+    </div>
+   </div>
+</div>
 
 
+<div class="container">
+<div class="row">
+<div class="col s12 m5 l5">
 <h4>Login</h4>
 <form action="/login" method="POST">
 <input type="text" name="username" placeholder="Login">
 <input type="submit" value="Login">
 </form>
-
+</div>
+<div class="col s0 m1 l1"></div>
+<div class="col s12 m5 l5">
 <h4>Sign Up</h4>
 <form action="/new" method="POST">
 <input type="text" name="name" placeholder="name">
 <input type="text" name="username" placeholder="username">
 <input type="submit" value="Create Account">
 </form>
+</div>
+</div>
+</div>
 </main>
