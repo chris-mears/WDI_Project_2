@@ -18,9 +18,7 @@
 <div class="container">
   <div class="header">
   <h4>{{retro.title}}</h4>
-  {{#if retro.completed}}
-  <h4>Retro Complete</h4>
-  {{/if}}
+  
   <div class="pad-left">
   <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit Retro" href="/{{user.username}}/{{retro._id}}/edit"><i class="small material-icons">edit</i></a>
   <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete Retro" href="#modal{{this._id}}"><i class="small material-icons">delete_forever</i>
@@ -39,6 +37,9 @@
   </div>
   <div class="row flex-m">
     <div class="col s12 m12 l7 retros">
+      {{#if retro.completed}}
+  <h4>Retro Complete</h4>
+  {{/if}}
       <h5>Description:</h5>
       <p>{{retro.description}}</p>
       <div>
