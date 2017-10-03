@@ -25,7 +25,10 @@ router.post('/login', (req, res) => {
             res.redirect(`/${user.username}`)
         })
         .catch((err) => {
-            res.send("Couldn't Find Username")
+            res.render("error", {
+                message: "Can't Find User",
+                error: err
+            })
         })
 
 })
@@ -38,7 +41,10 @@ router.post('/new', (req, res) => {
             res.redirect(`/${user.username}`)
         })
         .catch((err) => {
-            res.send("Please fill out both fields to create a new user")
+            res.render("error", {
+                message: "Username already exsist",
+                error: err
+            })
         })
 
 })
