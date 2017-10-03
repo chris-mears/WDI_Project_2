@@ -93,7 +93,9 @@ router.put('/:retroId', (req, res) => {
             return user.save()
         })
         .then(() => {
-            res.redirect(`/${userName}/${retroId}`)
+            //Utilizing express-back package to create dynamic redirect
+            //Prevents me from having to create multiple routes to give user functionality to Items at all levels 
+            return res.redirect(req.prevPrevPath)
         })
 })
 
