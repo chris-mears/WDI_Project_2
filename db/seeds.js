@@ -40,7 +40,7 @@ const sprint_fuzzybunny = new RetroModel({
     title: "Sprint: Fuzzy Bunny",
     description: "Marfa disrupt skateboard wolf wayfarers scenester Blue Bottle tattooed YOLO hella occupy cardigan banh mi Odd Future messenger bag Godard Schlitz fashion axe freegan Bushwick gentrify meggings butcher drinking vinegar Wes Anderson narwhal readymade Vice salvia Intelligentsia",
     positiveNotes: 'Good workflow',
-    negativeNotes: 'Account Managers blew us up',
+    negativeNotes: 'Communication with Client was difficult',
     meetingDate: new Date(),
     participants: "chris, Tom"
 })
@@ -69,7 +69,7 @@ const action_item_two_project = new ItemModel({
     progress: 'ToDo'
 })
 const action_item_sprint = new ItemModel({
-    title: 'Fire Account Manager',
+    title: 'Meet with Account Manager',
     description: 'hella occupy cardigan banh mi Odd Future messenger bag Godard Schlitze',
     priority: 'Lowest',
     dueDate: new Date("September 30, 2017"),

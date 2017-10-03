@@ -39,7 +39,6 @@ $(document).ready(function() {
     let dates = $('.duedate')
     dates.each((i, elm) => {
         let date = elm.innerText
-        console.log(date)
         if (date !== "") {
             date = new Date(date).toUTCString().substring(0, 15)
             return elm.innerText = date
