@@ -4,6 +4,11 @@ $(document).ready(function() {
     $('.modal').modal();
 });
 
+//utilized with mobile side nav
+$(document).ready(function() {
+    $(".button-collapse").sideNav();
+});
+
 //utilized with select input
 $(document).ready(function() {
     $('select').material_select();
@@ -31,12 +36,13 @@ $(document).ready(function() {
 
 //function that will format date when class duedate is used
 $(document).ready(function() {
-    let date = $('.duedate').html()
-    if (date !== undefined) {
-        date = date.substring(0, 15);
-        $('.duedate').html(date);
-    }
+    let dates = $('.duedate')
+    dates.each((i, elm) => {
+        let date = elm.innerText
+        if (date !== undefined) {
+            date = new Date(date).toUTCString().substring(0, 15)
+            return elm.innerText = date
+        }
 
-});
-
-$(".button-collapse").sideNav();
+    })
+})
