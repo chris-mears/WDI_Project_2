@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+
+//Packages utilized for dynamic redirects
 const session = require('express-session')
 const back = require("express-back");
 
@@ -33,9 +35,6 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
-/*, 'GET' for GET override method*/
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

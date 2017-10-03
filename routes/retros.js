@@ -4,7 +4,7 @@ const Schema = require('../db/schema.js')
 const UserModel = Schema.UserModel
 const RetroModel = Schema.RetroModel
 
-/* GET users listing. */
+// Get Route for Retro Index
 router.get('/', (req, res) => {
     const userName = req.params.username
     UserModel.findOne({ username: userName })
@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
         })
 });
 
+//Get route for new retro form
 router.get('/new', (req, res) => {
     const userName = req.params.username
     UserModel.findOne({ username: userName })
@@ -32,6 +33,7 @@ router.get('/new', (req, res) => {
         })
 })
 
+//post route to create retro
 router.post('/', (req, res) => {
     const userName = req.params.username
     const newRetro = req.body
@@ -49,6 +51,8 @@ router.post('/', (req, res) => {
         })
 })
 
+
+//Get route for Retro Edit Form
 router.get('/:retroId/edit', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -56,6 +60,7 @@ router.get('/:retroId/edit', (req, res) => {
     UserModel.findOne({ username: userName })
         .then((user) => {
             const retro = user.retros.id(retroId)
+                //Creating a date variable to format before passing to edit form
             let meetDate = retro.meetingDate
             if (meetDate !== null) {
                 meetDate = retro.meetingDate.toISOString().substring(0, 10)
@@ -68,6 +73,8 @@ router.get('/:retroId/edit', (req, res) => {
         })
 })
 
+
+//Put route using method override for Retro update
 router.put('/:retroId', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -90,6 +97,8 @@ router.put('/:retroId', (req, res) => {
         })
 })
 
+
+//Show Route for Retro
 router.get("/:retroId", (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -107,6 +116,7 @@ router.get("/:retroId", (req, res) => {
         })
 })
 
+//Delete Route for Retro
 router.get('/:retroId/delete', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId

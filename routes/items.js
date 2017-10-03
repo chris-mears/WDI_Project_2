@@ -5,7 +5,7 @@ const UserModel = Schema.UserModel
 const RetroModel = Schema.RetroModel
 
 
-
+//Get route for Action Item Index
 router.get("/", (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -23,6 +23,8 @@ router.get("/", (req, res) => {
         })
 })
 
+
+//Get route for New Action Item Form
 router.get('/new', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -36,7 +38,7 @@ router.get('/new', (req, res) => {
         })
 })
 
-
+//Post route for Action Item Creation
 router.post('/create', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -49,6 +51,8 @@ router.post('/create', (req, res) => {
             return user.save()
         })
         .then(() => {
+            //Utilizing express-back package to create dynamic redirect
+            //Prevents me from having to create multiple routes to give user functionality to Items at all levels 
             return res.redirect(req.prevPrevPath)
         })
         .catch((err) => {
@@ -56,6 +60,8 @@ router.post('/create', (req, res) => {
         })
 })
 
+
+//Get Route for Action Item Edit Form
 router.get('/:itemId/edit', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -65,6 +71,7 @@ router.get('/:itemId/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
             const item = retro.retroItems.id(itemId)
+                //Creating a date variable to format before passing to edit form
             let due = item.dueDate
             if (due !== null) {
                 due = item.dueDate.toISOString().substring(0, 10)
@@ -82,7 +89,7 @@ router.get('/:itemId/edit', (req, res) => {
         })
 })
 
-
+//Put route for Action Item Update
 router.put('/:itemId/update', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId
@@ -102,6 +109,8 @@ router.put('/:itemId/update', (req, res) => {
             return user.save()
         })
         .then(() => {
+            //Utilizing express-back package to create dynamic redirect
+            //Prevents me from having to create multiple routes to give user functionality to Items at all levels 
             return res.redirect(req.prevPrevPath)
         })
         .catch((err) => {
@@ -109,33 +118,7 @@ router.put('/:itemId/update', (req, res) => {
         })
 })
 
-router.get('/:itemId/retroitem/edit', (req, res) => {
-    const userName = req.params.username
-    const retroId = req.params.retroId
-    const itemId = req.params.itemId
-
-
-    UserModel.findOne({ username: userName })
-        .then((user) => {
-            const retro = user.retros.id(retroId)
-            const item = retro.retroItems.id(itemId)
-            let due = item.dueDate
-            if (due !== null) {
-                due = item.dueDate.toISOString().substring(0, 10)
-            }
-
-            res.render('items/retroedit', {
-                user: user,
-                retro: retro,
-                item: item,
-                due: due
-            })
-        })
-        .catch((err) => {
-            res.send(err);
-        })
-})
-
+//Delete Route for Action Item
 router.get('/:itemId/delete', (req, res) => {
     const userName = req.params.username
     const retroId = req.params.retroId

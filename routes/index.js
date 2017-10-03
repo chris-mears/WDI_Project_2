@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Schema = require('../db/schema.js')
 const UserModel = Schema.UserModel
-    /* GET home page. */
+
+/* GET home page. */
 router.get('/', function(req, res, next) {
     UserModel.find({})
         .then((users) => {
@@ -16,7 +17,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-
+//Route for login it when user enter username from homepage will take that value to search db and redirect to user page
 router.post('/login', (req, res) => {
     const userName = req.body.username
     UserModel.findOne({ 'username': userName })
@@ -29,6 +30,7 @@ router.post('/login', (req, res) => {
 
 })
 
+//Route for user creation will create user in db and then redirect to user page
 router.post('/new', (req, res) => {
     const newUser = req.body
     UserModel.create(newUser)
