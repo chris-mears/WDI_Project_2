@@ -48,25 +48,27 @@ $(document).ready(function() {
 })
 
 //auto selects priority for item on edit form
-const mySelect = document.getElementById('priority');
-let index = mySelect.dataset.selected
-console.log(index)
-switch (index) {
-    case "Lowest":
-        index = 0;
-        break;
-    case "Low":
-        index = 1;
-        break;
-    case "Normal":
-        index = 2;
-        break;
-    case "High":
-        index = 3;
-        break;
-    case "Highest":
-        index = 4;
-        break;
+if (document.getElementById('priority') !== null) {
+    const mySelect = document.getElementById('priority');
+    let index = mySelect.dataset.selected
+    console.log(index)
+    switch (index) {
+        case "Lowest":
+            index = 0;
+            break;
+        case "Low":
+            index = 1;
+            break;
+        case "Normal":
+            index = 2;
+            break;
+        case "High":
+            index = 3;
+            break;
+        case "Highest":
+            index = 4;
+            break;
+    }
+    console.log(index)
+    mySelect.getElementsByTagName('option')[index].setAttribute('selected', '')
 }
-console.log(index)
-mySelect.getElementsByTagName('option')[index].setAttribute('selected', '');
