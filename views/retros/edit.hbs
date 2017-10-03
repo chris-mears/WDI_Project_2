@@ -1,23 +1,31 @@
+<!-- //==================================//
+                      Nav
+    //==================================// -->
 <nav>
     <div class="nav-wrapper blue">
-      <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}">Home</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}">Home</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
+        <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+            <li><a href="/{{user.username}}">Home</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+            <li><a href="/{{user.username}}">Home</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
+
+<!-- //==================================//
+                      Main
+    //==================================// -->
 
 <main class="light-blue lighten-5">
 
-<div class="user-header">
+    <!-- user header banner -->
+    <div class="user-header">
         <div class="user-shadow">
             <div class="user-title">
                 <div class="header">
@@ -27,44 +35,56 @@
         </div>
     </div>
 
-<div class="container">
-    <div class="row">
-        <h3>Update Retro:</h3>
-        <form action="/{{user.username}}/{{retro._id}}?_method=PUT" method="POST" class="col s12 m12 l12">
-            <div class="input-field col s12 m12 l12">
-                <label>Title:</label>
-                <input type="text" name="title" value="{{retro.title}}">
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <label>Description:</label>
-                <textarea name="description" placeholder="Description" class="materialize-textarea">{{retro.description}}</textarea>
-            </div>
 
-            <div class="input-field col s12 m12 l6">
-                <label>What Went Right:</label>
-                <textarea name="positiveNotes" placeholder="Positive Notes" class="materialize-textarea">{{retro.positiveNotes}}</textarea>
-            </div>
+    <!-- Update Retro Form -->
+    <div class="container">
+        <div class="row">
+            <h3>Update Retro:</h3>
+            <form action="/{{user.username}}/{{retro._id}}?_method=PUT" method="POST" class="col s12 m12 l12">
 
-            <div class="input-field col s12 m12 l6">
-                <label>What Went Wrong:</label>
-                <textarea name="negativeNotes" placeholder="Negative Notes" class="materialize-textarea">{{retro.negativeNotes}}</textarea>
-            </div>
-            <div class="input-field col s12 m12 l12">
-<label>Meeting Date:</label>
-<input type="date" name="meetingDate" class="datepicker" value="{{meetDate}}">
-</div>
-            <div class="input-field col s12 m12 l12">
-                <label>Participants:</label>
-                <input type="text" name="participants" value="{{retro.participants}}">
-            </div>
-            <div class="col s12 m12 l12">
-                <input class="filled-in" type="checkbox" id="completed" name="completed" value="true" />
-                <label for="completed">Complete</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
-                <input type="submit" value="Update Retro">
-            </div>
-        </form>
+                <!-- Retro Title -->
+                <div class="input-field col s12 m12 l12">
+                    <label>Title:</label>
+                    <input type="text" name="title" value="{{retro.title}}">
+                </div>
+
+                <!-- Retro Decription -->
+                <div class="input-field col s12 m12 l12">
+                    <label>Description:</label>
+                    <textarea name="description" placeholder="Description" class="materialize-textarea">{{retro.description}}</textarea>
+                </div>
+
+                <!-- Retro Positive Notes -->
+                <div class="input-field col s12 m12 l6">
+                    <label>What Went Right:</label>
+                    <textarea name="positiveNotes" placeholder="Positive Notes" class="materialize-textarea">{{retro.positiveNotes}}</textarea>
+                </div>
+
+                <!-- Retro Negative Notes -->
+                <div class="input-field col s12 m12 l6">
+                    <label>What Went Wrong:</label>
+                    <textarea name="negativeNotes" placeholder="Negative Notes" class="materialize-textarea">{{retro.negativeNotes}}</textarea>
+                </div>
+
+                <!-- Retro Meeting Date -->
+                <div class="input-field col s12 m12 l12">
+                    <label>Meeting Date:</label>
+                    <input type="date" name="meetingDate" class="datepicker" value="{{meetDate}}">
+                </div>
+
+                <!-- Retro Participents -->
+                <div class="input-field col s12 m12 l12">
+                    <label>Participants:</label>
+                    <input type="text" name="participants" value="{{retro.participants}}">
+                </div>
+                <div class="col s12 m12 l12">
+                    <input class="filled-in" type="checkbox" id="completed" name="completed" value="true" />
+                    <label for="completed">Complete</label>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <input type="submit" value="Update Retro">
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </main>
