@@ -7,6 +7,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const session = require('express-session')
+const back = require("express-back");
+
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, { useMongoClient: true });
@@ -38,6 +41,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+    secret: 'super secret'
+}));
+
+app.use(back());
 
 app.use('/', index);
 app.use('/:username', retro);
