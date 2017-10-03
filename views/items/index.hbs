@@ -2,22 +2,22 @@
                       Nav: fixed
     //==================================// -->
 <div class="navbar-fixed">
-<nav>
-  <div class="nav-wrapper blue">
-    <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-      <li><a href="/{{user.username}}">Home</a></li>
-      <li><a href="/">Logout</a></li>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-      <li><a href="/{{user.username}}">Retros</a></li>
-      <li><a href="/">Logout</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav>
+    <div class="nav-wrapper blue">
+      <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+        <li><a href="/{{user.username}}">Home</a></li>
+        <li><a href="/">Logout</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+        <li><a href="/{{user.username}}">Retros</a></li>
+        <li><a href="/">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
 </div>
 
 <!-- //==================================//
@@ -26,91 +26,112 @@
 
 <main class="light-blue lighten-5">
 
-<div class="user-header">
-        <div class="user-shadow">
-            <div class="user-title">
-                <div class="header">
-                    <h4>{{user.name}}</h4>
-                </div>
-            </div>
+
+  <!-- user header banner -->
+  <div class="user-header">
+    <div class="user-shadow">
+      <div class="user-title">
+        <div class="header">
+          <h4>{{user.name}}</h4>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+
+      <!-- Create Link for Action items with tooltip -->
+      <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Action Item" href="/{{user.username}}/{{retro._id}}/item/new"><i class="small material-icons">add_box</i></a>
+      <h4>Action Items:</h4>
     </div>
 
-<div class="container">
-  <div class="header">
-    <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Create Action Item"href="/{{user.username}}/{{retro._id}}/item/new"><i class="small material-icons">add_box</i></a>
-    <h4>Action Items:</h4>
-  </div>
-  {{#each retro.retroItems}}
-  {{#unless this.completed}}
-  <div class="row" id="{{this._id}}">
-    <div class="col s12 m12 l12">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">{{this.title}}</span>
-          <p>{{this.description}}</p>
-          <ul>
-            <li>Prioirty: {{this.priority}}</li>
-            <li>Due Date: <span class='duedate'>{{this.dueDate}}</span></li>
-            <li>Responsible: {{this.responsible}}</li>
-          </ul>
-        </div>
-        <div class="card-action">
-          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit Item" href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/edit"><i class="small material-icons">edit</i></a>
-          <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}"><i class="small material-icons">delete_forever</i></a>
-          <div id="modal{{this._id}}" class="modal">
-            <div class="modal-content">
-              <h5>Delete Action Item</h5>
-              <p>Are you sure you want to Delete</p>
-            </div>
-            <div class="modal-footer">
-              <a href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
-                alt="Delete Retro">Agree</a>
+    <!-- Non Complete Action Items Listed First -->
+    {{#each retro.retroItems}} {{#unless this.completed}}
+    <div class="row" id="{{this._id}}">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-content">
+            <!-- Action Item Details -->
+            <span class="card-title">{{this.title}}</span>
+            <p>{{this.description}}</p>
+            <ul>
+              <li>Prioirty: {{this.priority}}</li>
+              <li>Due Date: <span class='duedate'>{{this.dueDate}}</span></li>
+              <li>Responsible: {{this.responsible}}</li>
+            </ul>
+          </div>
+          <div class="card-action">
+
+            <!-- Edit Link for Action items with tooltip -->
+            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit Item" href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/edit"><i class="small material-icons">edit</i></a>
+
+            <!-- Delete Link for Action items with tooltip: Intiates a Modal -->
+            <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}"><i class="small material-icons">delete_forever</i></a>
+
+            <!-- Delete Modal -->
+            <div id="modal{{this._id}}" class="modal">
+              <div class="modal-content">
+                <h5>Delete Action Item</h5>
+                <p>Are you sure you want to Delete</p>
+              </div>
+              <div class="modal-footer">
+                <a href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
+                  alt="Delete Retro">Agree</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  {{/unless}}
-  {{/each}}
-   {{#each retro.retroItems}}
-  {{#if this.completed}}
-  <h4>Completed Tasks:</h4>
-  <div class="row" id="{{this._id}}">
-    <div class="col s12 m12 l12">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">
+    {{/unless}} {{/each}}
+
+    <!-- completed items listed next -->
+    {{#each retro.retroItems}} {{#if this.completed}}
+    <h4>Completed Tasks:</h4>
+    <div class="row" id="{{this._id}}">
+      <div class="col s12 m12 l12">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+
+            <!-- completed items listed next -->
             <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Item Complete">
             <i class="small material-icons">check_box</i></a>
+            
+            <!-- Action Item Details -->
             {{this.title}}</span>
-          <p>{{this.description}}</p>
-          <ul>
-            <li>Prioirty: {{this.priority}}</li>
-            <li>Due Date: <span class='duedate'>{{this.dueDate}}</span></li>
-            <li>Responsible: {{this.responsible}}</li>
-            <li><strong>COMPLETED</strong></li>
-          </ul>
-        </div>
-        <div class="card-action">
-          <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit Item" href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/edit"><i class="small material-icons">edit</i></a>
-          <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}"><i class="small material-icons">delete_forever</i></a>
-          <div id="modal{{this._id}}" class="modal">
-            <div class="modal-content">
-              <h5>Delete Action Item</h5>
-              <p>Are you sure you want to Delete</p>
-            </div>
-            <div class="modal-footer">
-              <a href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
-                alt="Delete Retro">Agree</a>
+            <p>{{this.description}}</p>
+            <ul>
+              <li>Prioirty: {{this.priority}}</li>
+              <li>Due Date: <span class='duedate'>{{this.dueDate}}</span></li>
+              <li>Responsible: {{this.responsible}}</li>
+              <li><strong>COMPLETED</strong></li>
+            </ul>
+          </div>
+          <div class="card-action">
+
+            <!-- Edit Link for Action items with tooltip -->
+            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Edit Item" href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/edit"><i class="small material-icons">edit</i></a>
+
+            <!-- Delete Link for Action items with tooltip: Intiates a Modal -->
+            <a class="modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete item" href="#modal{{this._id}}"><i class="small material-icons">delete_forever</i></a>
+
+            <!-- Delete Modal -->
+            <div id="modal{{this._id}}" class="modal">
+              <div class="modal-content">
+                <h5>Delete Action Item</h5>
+                <p>Are you sure you want to Delete</p>
+              </div>
+              <div class="modal-footer">
+                <a href="/{{../user.username}}/{{../retro._id}}/item/{{this._id}}/delete" class="modal-action modal-close waves-effect waves-green btn-flat"
+                  alt="Delete Retro">Agree</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    {{/if}} {{/each}}
   </div>
-  {{/if}}
-  {{/each}}
-</div>
 </main>

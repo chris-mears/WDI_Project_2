@@ -2,55 +2,55 @@
                       Nav
     //==================================// -->
 <nav>
-    <div class="nav-wrapper blue">
-      <a href="/" class="brand-logo"><img class="logo" src="/images/logo.png"></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-      </ul>
-    </div>
-  </nav>
+  <div class="nav-wrapper blue">
+    <a href="/" class="brand-logo"><img class="logo" src="/images/logo.png"></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+    </ul>
+  </div>
+</nav>
 
 <!-- //==================================//
                       Main
     //==================================// -->
 
 <main class="light-blue lighten-5">
-<!-- user header banner -->
-<div class = "main-header">
-   <div class = "shadow">
-    <div class="title">
-    <img src="/images/logo.png" class="logo">
-    <h1>{{title}}</h1>
+  <!-- user header banner -->
+  <div class="main-header">
+    <div class="shadow">
+      <div class="title">
+        <img src="/images/logo.png" class="logo">
+        <h1>{{title}}</h1>
+      </div>
+      <div>
+        <p>Welcome to {{title}}. An app for recording the Action items that come out of retrospectives.</p>
+      </div>
     </div>
-    <div>
-    <p>Welcome to {{title}}. An app for recording the Action items that come out of retrospectives.</p>
+  </div>
+
+  <!-- login section -->
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m5 l5">
+        <h4>Login</h4>
+        <form action="/login" method="POST">
+          <input type="text" name="username" placeholder="Login" class="white">
+          <input type="submit" value="Login">
+        </form>
+      </div>
+
+      <!-- user creation -->
+      <div class="col s0 m1 l1"></div>
+      <div class="col s12 m5 l5">
+        <h4>Sign Up</h4>
+        <form action="/new" method="POST">
+          <input type="text" name="name" placeholder="name" class="white">
+          <input type="text" name="username" placeholder="username" class="white">
+          <input type="submit" value="Create Account">
+        </form>
+      </div>
     </div>
-   </div>
-</div>
-
-<!-- login section -->
-<div class="container">
-<div class="row">
-<div class="col s12 m5 l5">
-<h4>Login</h4>
-<form action="/login" method="POST">
-<input type="text" name="username" placeholder="Login" class="white">
-<input type="submit" value="Login">
-</form>
-</div>
-
-<!-- user creation -->
-<div class="col s0 m1 l1"></div>
-<div class="col s12 m5 l5">
-<h4>Sign Up</h4>
-<form action="/new" method="POST">
-<input type="text" name="name" placeholder="name" class="white">
-<input type="text" name="username" placeholder="username" class="white">
-<input type="submit" value="Create Account">
-</form>
-</div>
-</div>
-</div>
+  </div>
 </main>

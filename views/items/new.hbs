@@ -3,22 +3,22 @@
     //==================================// -->
 <nav>
     <div class="nav-wrapper blue">
-      <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
-        <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}">Home</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-        <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
-        <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
-        <li><a href="/{{user.username}}">Home</a></li>
-        <li><a href="/">Logout</a></li>
-      </ul>
+        <a href="/{{user.username}}" class="brand-logo"><img class="logo" src="/images/logo.svg"></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
+            <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+            <li><a href="/{{user.username}}">Home</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="/{{user.username}}/{{retro._id}}/item">{{retro.title}} Items</a></li>
+            <li><a href="/{{user.username}}/{{retro._id}}">{{retro.title}}</a></li>
+            <li><a href="/{{user.username}}">Home</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
 <!-- //==================================//
                       Main
@@ -26,7 +26,8 @@
 
 <main class="light-blue lighten-5">
 
-<div class="user-header">
+    <!-- user header banner -->
+    <div class="user-header">
         <div class="user-shadow">
             <div class="user-title">
                 <div class="header">
@@ -36,45 +37,52 @@
         </div>
     </div>
 
-<div class="container">
-<div class="row">
-<h3>Create Action item:</h3>
-<form action="/{{user.username}}/{{retro._id}}/item/create" method="POST" class="col s12 m9">
-<div class="input-field col s12 m12 l9">
-<input type="text" name="title">
-<label>Title:</label>
-</div>
+    <div class="container">
+        <div class="row">
+            <h3>Create Action item:</h3>
 
-<div class="input-field col s12 m12 l9">
-<textarea rows="8" cols="60" name="description" placeholder="Description" class="materialize-textarea">
-</textarea>
-</div>
+            <!-- Action Item Title -->
+            <form action="/{{user.username}}/{{retro._id}}/item/create" method="POST" class="col s12 m9">
+                <div class="input-field col s12 m12 l9">
+                    <input type="text" name="title">
+                    <label>Title:</label>
+                </div>
 
-<div class="input-field col s12 m12 l9">
-<select name="priority">
-  <option value="Lowest">Lowest</option>
-  <option value="Low">Low</option>
-  <option value="Normal">Normal</option>
-  <option value="High">High</option>
-  <option value="Highest">Highest</option>
-</select>
-<label>Priority:</label>
-</div>
-<br>
-<div class="input-field col s12 m12 l9">
-<input type="date" name="dueDate" class="datepicker">
-<label>Due Date:</label>
-</div>
 
-<div class="input-field col s12 m12 l9">
-<input type="text" name="responsible">
-<label>Responsible:</label>
-</div>
+                <!-- Action Item Description -->
+                <div class="input-field col s12 m12 l9">
+                    <textarea rows="8" cols="60" name="description" placeholder="Description" class="materialize-textarea">
+                    </textarea>
+                </div>
 
-<div class="input-field col s12 m12 l9">
-<input type="submit" value="Create Item">
-</div>
-</form>
-</div>
-</div>
+                <!-- Action Item Priority -->
+                <div class="input-field col s12 m12 l9">
+                    <select name="priority">
+                        <option value="Lowest">Lowest</option>
+                        <option value="Low">Low</option>
+                        <option value="Normal">Normal</option>
+                        <option value="High">High</option>
+                        <option value="Highest">Highest</option>
+                    </select>
+                    <label>Priority:</label>
+                </div>
+
+                <!-- Action Item Due Date -->
+                <div class="input-field col s12 m12 l9">
+                    <input type="date" name="dueDate" class="datepicker">
+                    <label>Due Date:</label>
+                </div>
+
+                <!-- Action Item Responsible -->
+                <div class="input-field col s12 m12 l9">
+                    <input type="text" name="responsible">
+                    <label>Responsible:</label>
+                </div>
+
+                <div class="input-field col s12 m12 l9">
+                    <input type="submit" value="Create Item">
+                </div>
+            </form>
+        </div>
+    </div>
 </main>
