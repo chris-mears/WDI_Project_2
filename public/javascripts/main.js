@@ -35,6 +35,7 @@ $(document).ready(function() {
 });
 
 //function that will format date when class duedate is used
+//Found date format from: https://stackoverflow.com/questions/3066586/get-string-in-yyyymmdd-format-from-js-date-object
 $(document).ready(function() {
     let dates = $('.duedate')
     dates.each((i, elm) => {
@@ -48,6 +49,7 @@ $(document).ready(function() {
 })
 
 //auto selects priority for item on edit form
+//Got select idea from https://stackoverflow.com/questions/9976042/dynamically-select-value-from-drop-down-list
 if (document.getElementById('priority') !== null) {
     const mySelect = document.getElementById('priority');
     let index = mySelect.dataset.selected

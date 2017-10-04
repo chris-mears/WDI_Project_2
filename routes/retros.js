@@ -61,6 +61,7 @@ router.get('/:retroId/edit', (req, res) => {
         .then((user) => {
             const retro = user.retros.id(retroId)
                 //Creating a date variable to format before passing to edit form
+                //Found date format from: https://stackoverflow.com/questions/3066586/get-string-in-yyyymmdd-format-from-js-date-object
             let meetDate = retro.meetingDate
             if (meetDate !== null) {
                 meetDate = retro.meetingDate.toISOString().substring(0, 10)
