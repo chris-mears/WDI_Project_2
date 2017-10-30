@@ -2,7 +2,7 @@
 Retro/Meeting App
 ---
 ### Project: Retro'd
-### Heroku Link: [Heroku App](https://fathomless-falls-63442.herokuapp.com/)
+### Heroku Link: [Heroku App](https://mears-retrod-app.herokuapp.com/)
 ### Trello Board: [WDI Project 2](https://trello.com/b/74XgZJik/wdi-project-2-full-stack-crud)
 ### Technologies Used:
 Javascript, JQuery, Css. Built with NodeJs and express, Uilitizing Handlebars for the View and MongoDb for the Database
